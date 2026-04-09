@@ -1,10 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>Hello GitHub.io</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="个人主页示例：展示简介、技能、项目与联系方式。">
+  <title>个人主页 - 张三</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello, GitHub.io!</h1>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home">张三</a>
+      <nav aria-label="主导航">
+        <ul class="nav-list">
+          <li><a href="#about">关于我</a></li>
+          <li><a href="#skills">技能</a></li>
+          <li><a href="#projects">项目</a></li>
+          <li><a href="#contact">联系</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="btn btn-outline" type="button" aria-label="切换主题">
+        切换主题
+      </button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero container">
+      <div class="hero-text">
+        <p class="tag">前端开发学习者</p>
+        <h1>你好，我是张三</h1>
+        <p>
+          我正在专注学习 HTML、CSS、JavaScript，目标是做出简洁、好用、有细节的网页作品。
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#projects">查看项目</a>
+          <a class="btn btn-outline" href="#contact">联系我</a>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="个人信息卡片">
+        <h2>快速信息</h2>
+        <ul>
+          <li><strong>城市：</strong>A市</li>
+          <li><strong>方向：</strong>Web 前端</li>
+          <li><strong>状态：</strong>持续学习中</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="about" class="section container">
+      <h2>关于我</h2>
+      <p>
+        我喜欢把复杂内容做成易理解的页面。日常会练习语义化结构、响应式布局和基础交互，
+        希望通过不断实践提升工程能力与用户体验思维。
+      </p>
+    </section>
+
+    <section id="skills" class="section container">
+      <h2>技能</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>HTML</h3>
+          <p>掌握语义化标签，能搭建结构清晰的页面。</p>
+        </article>
+        <article class="card">
+          <h3>CSS</h3>
+          <p>熟悉 Flex 布局、响应式设计与常见视觉样式。</p>
+        </article>
+        <article class="card">
+          <h3>JavaScript</h3>
+          <p>可实现基础交互逻辑、DOM 操作与事件处理。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section container">
+      <h2>项目</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>个人博客首页</h3>
+          <p>实现文章列表展示、分类导航与移动端适配。</p>
+        </article>
+        <article class="card">
+          <h3>待办事项应用</h3>
+          <p>支持任务新增、删除、状态切换与本地存储。</p>
+        </article>
+        <article class="card">
+          <h3>产品介绍落地页</h3>
+          <p>完成品牌展示、功能说明和行动按钮引导。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section container">
+      <h2>联系我</h2>
+      <p>欢迎交流学习与项目合作。</p>
+      <ul class="contact-list">
+        <li>邮箱：<a href="mailto:demo@example.com">demo@example.com</a></li>
+        <li>GitHub：<a href="https://github.com/" target="_blank" rel="noopener noreferrer">https://github.com/</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> 张三. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
