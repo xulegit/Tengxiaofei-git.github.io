@@ -4,7 +4,7 @@ const themeLabel = document.querySelector('[data-theme-label]')
 const cardViewport = document.getElementById('card-viewport')
 const cardTrack = document.getElementById('card-track')
 const navDots = document.querySelectorAll('.nav-dot')
-const slideJumpButtons = document.querySelectorAll('[data-slide-to]')
+const slideJumpButtons = document.querySelectorAll('[data-slide-to]:not(.nav-dot)')
 
 const SECTION_IDS = ['home', 'research', 'competition', 'internship', 'social']
 
@@ -60,17 +60,39 @@ const applyNavActive = (activeId) => {
   navDots.forEach((btn) => {
     const target = btn.getAttribute('data-slide-to')
     const isActive = target === activeId
+    const label = btn.querySelector('.nav-dot__label')
+
+    btn.classList.toggle('w-auto', isActive)
+    btn.classList.toggle('min-w-12', isActive)
+    btn.classList.toggle('gap-2', isActive)
+    btn.classList.toggle('pr-4', isActive)
+    btn.classList.toggle('w-12', !isActive)
+    btn.classList.toggle('gap-0', !isActive)
+    btn.classList.toggle('pr-0', !isActive)
+
+    if (label) {
+      label.classList.toggle('max-w-[min(20rem,calc(100vw-5rem))]', isActive)
+      label.classList.toggle('opacity-100', isActive)
+      label.classList.toggle('max-w-0', !isActive)
+      label.classList.toggle('opacity-0', !isActive)
+    }
+
     btn.classList.toggle('border-brand-500', isActive)
-    btn.classList.toggle('bg-brand-100', isActive)
+    btn.classList.toggle('border-slate-200/80', !isActive)
+    btn.classList.toggle('bg-brand-50', isActive)
+    btn.classList.toggle('bg-white', !isActive)
     btn.classList.toggle('text-brand-800', isActive)
-    btn.classList.toggle('shadow-md', isActive)
-    btn.classList.toggle('dark:border-brand-400', isActive)
-    btn.classList.toggle('dark:bg-brand-500/25', isActive)
-    btn.classList.toggle('dark:text-brand-100', isActive)
-    btn.classList.toggle('bg-slate-100', !isActive)
     btn.classList.toggle('text-slate-700', !isActive)
-    btn.classList.toggle('dark:bg-slate-800', !isActive)
+    btn.classList.toggle('shadow-lg', isActive)
+    btn.classList.toggle('shadow-card', !isActive)
+    btn.classList.toggle('dark:border-brand-400', isActive)
+    btn.classList.toggle('dark:border-slate-700', !isActive)
+    btn.classList.toggle('dark:bg-brand-500/25', isActive)
+    btn.classList.toggle('dark:bg-slate-800/90', !isActive)
+    btn.classList.toggle('dark:text-brand-100', isActive)
     btn.classList.toggle('dark:text-slate-200', !isActive)
+    btn.classList.toggle('dark:shadow-lg', isActive)
+    btn.classList.toggle('dark:shadow-card-dark', !isActive)
     if (isActive) {
       btn.setAttribute('aria-current', 'true')
     } else {
@@ -205,17 +227,29 @@ if (cardViewport && cardTrack) {
     }
   }, { passive: true })
 
-  cardViewport.addEventListener('keydown', (event) => {
+  const isArrowCarouselBlockedTarget = (target) => {
+    if (!target || !target.closest) {
+      return false
+    }
+    return Boolean(target.closest('input, textarea, select, [contenteditable="true"]'))
+  }
+
+  const handleCarouselArrowKeys = (event) => {
+    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') {
+      return
+    }
+    if (isArrowCarouselBlockedTarget(event.target)) {
+      return
+    }
+    event.preventDefault()
     if (event.key === 'ArrowRight') {
-      event.preventDefault()
       goToIndex(currentIndex + 1)
       return
     }
-    if (event.key === 'ArrowLeft') {
-      event.preventDefault()
-      goToIndex(currentIndex - 1)
-    }
-  })
+    goToIndex(currentIndex - 1)
+  }
+
+  window.addEventListener('keydown', handleCarouselArrowKeys)
 
   window.addEventListener('hashchange', () => {
     const id = getInitialSectionId()
