@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="scroll-smooth">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,19 +39,12 @@
     }
   </script>
 </head>
-<body class="min-h-screen bg-gradient-to-b from-slate-50 via-white to-brand-50/40 text-slate-800 antialiased transition-colors duration-300 dark:from-ink-950 dark:via-slate-900 dark:to-slate-900 dark:text-slate-100">
+<body class="flex min-h-screen flex-col bg-gradient-to-b from-slate-50 via-white to-brand-50/40 text-slate-800 antialiased transition-colors duration-300 dark:from-ink-950 dark:via-slate-900 dark:to-slate-900 dark:text-slate-100">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white focus:outline-none focus:ring-2 focus:ring-brand-400">跳到主要内容</a>
 
-  <header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/80 backdrop-blur-md dark:border-slate-700/80 dark:bg-slate-900/80">
-    <div class="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
-      <a class="text-lg font-bold tracking-tight text-slate-900 no-underline hover:text-brand-600 dark:text-white dark:hover:text-brand-400" href="#home" aria-label="返回首页">腾小飞</a>
-      <nav class="flex flex-1 flex-wrap items-center justify-end gap-1 sm:gap-2" aria-label="主导航">
-        <a class="nav-link rounded-lg px-2.5 py-1.5 text-sm font-medium text-slate-600 no-underline hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white sm:px-3" href="#home">首页</a>
-        <a class="nav-link rounded-lg px-2.5 py-1.5 text-sm font-medium text-slate-600 no-underline hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white sm:px-3" href="#research">科研</a>
-        <a class="nav-link rounded-lg px-2.5 py-1.5 text-sm font-medium text-slate-600 no-underline hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white sm:px-3" href="#competition">竞赛</a>
-        <a class="nav-link rounded-lg px-2.5 py-1.5 text-sm font-medium text-slate-600 no-underline hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white sm:px-3" href="#internship">实习</a>
-        <a class="nav-link rounded-lg px-2.5 py-1.5 text-sm font-medium text-slate-600 no-underline hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white sm:px-3" href="#social">实践</a>
-      </nav>
+  <header class="z-30 shrink-0 border-b border-slate-200/80 bg-white/80 backdrop-blur-md dark:border-slate-700/80 dark:bg-slate-900/80">
+    <div class="mx-auto flex w-full max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+      <p class="m-0 text-lg font-bold tracking-tight text-slate-900 dark:text-white">腾小飞</p>
       <button id="theme-toggle" type="button" class="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 shadow-sm hover:border-brand-300 hover:bg-brand-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-brand-500 dark:hover:bg-slate-700" aria-label="切换深色或浅色主题" aria-pressed="false">
         <span class="hidden sm:inline" data-theme-label>浅色</span>
         <span aria-hidden="true" class="text-base">◐</span>
@@ -59,120 +52,184 @@
     </div>
   </header>
 
-  <main id="main-content">
-    <section id="home" class="mx-auto w-full max-w-5xl px-4 pb-12 pt-10 sm:px-6 sm:pt-14">
-      <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-        <div class="space-y-5">
-          <p class="inline-flex items-center rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700 dark:border-brand-500/40 dark:bg-brand-500/10 dark:text-brand-300">
-            复旦大学 · 腾飞书院
-          </p>
-          <h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
-            你好，我是<span class="bg-gradient-to-r from-brand-600 to-amber-500 bg-clip-text text-transparent dark:from-brand-400 dark:to-amber-300">腾小飞</span>
-          </h1>
-          <p class="max-w-xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-            工科学生一枚；本页是 <span class="font-medium text-slate-800 dark:text-slate-200">GitHub Pages 静态个人名片</span> 的示例，展示简介与经历片段。
-          </p>
-          <blockquote class="border-l-4 border-brand-500 pl-4 text-base italic text-slate-700 dark:border-brand-400 dark:text-slate-200">
-            「永远在腾飞路上！」
-          </blockquote>
-          <div class="flex flex-wrap gap-3 pt-2">
-            <a class="inline-flex items-center justify-center rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white no-underline shadow-md shadow-brand-600/25 transition hover:bg-brand-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900" href="#research">浏览经历</a>
-            <a class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 no-underline transition hover:border-brand-300 hover:bg-brand-50 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:border-brand-500 dark:hover:bg-slate-700 dark:focus:ring-offset-slate-900" href="https://github.com/Tengxiaofei-git/Tengxiaofei-git.github.io" target="_blank" rel="noopener noreferrer">GitHub 仓库</a>
+  <main id="main-content" class="flex min-h-0 flex-1 flex-col">
+    <div
+      id="card-viewport"
+      class="mx-auto flex min-h-0 w-full max-w-5xl flex-1 touch-pan-y overflow-hidden px-3 pt-4 sm:px-6 sm:pt-6"
+      aria-roledescription="carousel"
+      aria-label="个人名片各板块，可左右滑动切换"
+      tabindex="0"
+    >
+      <div
+        id="card-track"
+        class="relative flex h-full w-full gap-4 will-change-transform transition-transform duration-300 ease-out motion-reduce:transition-none sm:gap-6"
+        style="transform: translateX(0)"
+      >
+        <article
+          id="home"
+          class="card-slide flex min-h-0 flex-none shrink-0 flex-col items-center justify-center"
+          aria-roledescription="slide"
+          aria-label="首页"
+        >
+          <div class="card-shell h-[60vh] w-full max-w-full shrink-0 overflow-y-auto overflow-x-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8 dark:border-slate-700 dark:bg-slate-800/80 dark:shadow-card-dark">
+            <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+              <div class="space-y-5">
+                <p class="inline-flex items-center rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700 dark:border-brand-500/40 dark:bg-brand-500/10 dark:text-brand-300">
+                  复旦大学 · 腾飞书院
+                </p>
+                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl">
+                  你好，我是<span class="bg-gradient-to-r from-brand-600 to-amber-500 bg-clip-text text-transparent dark:from-brand-400 dark:to-amber-300">腾小飞</span>
+                </h1>
+                <p class="max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg">
+                  工科学生一枚；本页是 <span class="font-medium text-slate-800 dark:text-slate-200">GitHub Pages 静态个人名片</span> 的示例，展示简介与经历片段。
+                </p>
+                <blockquote class="border-l-4 border-brand-500 pl-4 text-base italic text-slate-700 dark:border-brand-400 dark:text-slate-200">
+                  「永远在腾飞路上！」
+                </blockquote>
+                <div class="flex flex-wrap gap-3 pt-2">
+                  <button
+                    type="button"
+                    class="inline-flex items-center justify-center rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-brand-600/25 transition hover:bg-brand-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900"
+                    data-slide-to="research"
+                  >
+                    浏览经历
+                  </button>
+                  <a class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 no-underline transition hover:border-brand-300 hover:bg-brand-50 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:border-brand-500 dark:hover:bg-slate-700 dark:focus:ring-offset-slate-900" href="https://github.com/Tengxiaofei-git/Tengxiaofei-git.github.io" target="_blank" rel="noopener noreferrer">GitHub 仓库</a>
+                </div>
+              </div>
+              <aside class="rounded-2xl border border-slate-200/70 bg-slate-50/80 p-5 dark:border-slate-600 dark:bg-slate-900/40" aria-label="快速信息">
+                <h2 class="mt-0 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">名片摘要</h2>
+                <dl class="mt-4 space-y-4">
+                  <div>
+                    <dt class="text-xs font-medium text-slate-500 dark:text-slate-400">姓名</dt>
+                    <dd class="mt-0.5 text-lg font-semibold text-slate-900 dark:text-white">腾小飞</dd>
+                  </div>
+                  <div>
+                    <dt class="text-xs font-medium text-slate-500 dark:text-slate-400">学校与书院</dt>
+                    <dd class="mt-0.5 text-slate-800 dark:text-slate-200">复旦大学腾飞书院</dd>
+                  </div>
+                  <div>
+                    <dt class="text-xs font-medium text-slate-500 dark:text-slate-400">年龄</dt>
+                    <dd class="mt-0.5 text-slate-800 dark:text-slate-200">永远的 18 岁</dd>
+                  </div>
+                  <div>
+                    <dt class="text-xs font-medium text-slate-500 dark:text-slate-400">人生格言</dt>
+                    <dd class="mt-0.5 font-medium text-brand-700 dark:text-brand-300">永远在腾飞路上！</dd>
+                  </div>
+                </dl>
+              </aside>
+            </div>
           </div>
-        </div>
-        <aside class="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card dark:border-slate-700 dark:bg-slate-800/80 dark:shadow-card-dark" aria-label="快速信息">
-          <h2 class="mt-0 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">名片摘要</h2>
-          <dl class="mt-4 space-y-4">
-            <div>
-              <dt class="text-xs font-medium text-slate-500 dark:text-slate-400">姓名</dt>
-              <dd class="mt-0.5 text-lg font-semibold text-slate-900 dark:text-white">腾小飞</dd>
-            </div>
-            <div>
-              <dt class="text-xs font-medium text-slate-500 dark:text-slate-400">学校与书院</dt>
-              <dd class="mt-0.5 text-slate-800 dark:text-slate-200">复旦大学腾飞书院</dd>
-            </div>
-            <div>
-              <dt class="text-xs font-medium text-slate-500 dark:text-slate-400">年龄</dt>
-              <dd class="mt-0.5 text-slate-800 dark:text-slate-200">永远的 18 岁</dd>
-            </div>
-            <div>
-              <dt class="text-xs font-medium text-slate-500 dark:text-slate-400">人生格言</dt>
-              <dd class="mt-0.5 font-medium text-brand-700 dark:text-brand-300">永远在腾飞路上！</dd>
-            </div>
-          </dl>
-        </aside>
-      </div>
-    </section>
+        </article>
 
-    <div class="mx-auto w-full max-w-5xl space-y-4 px-4 pb-16 sm:px-6">
-      <section id="research" class="scroll-mt-24 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8 dark:border-slate-700 dark:bg-slate-800/60 dark:shadow-card-dark">
-        <div class="flex flex-wrap items-baseline gap-3">
-          <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-100 text-lg dark:bg-brand-500/20" aria-hidden="true">🔬</span>
-          <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">科研经历</h2>
-        </div>
-        <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
-          <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
-            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
-            <span>参与发表一篇 <strong class="font-semibold text-slate-800 dark:text-slate-100">WON</strong> 负一区文章</span>
-          </li>
-          <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
-            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
-            <span>一篇 <strong class="font-semibold text-slate-800 dark:text-slate-100">S.H.I.T</strong> 在投</span>
-          </li>
-          <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
-            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
-            <span><strong class="font-semibold text-slate-800 dark:text-slate-100">xxxx</strong> 实验室周公下棋全勤奖</span>
-          </li>
-        </ul>
-      </section>
-
-      <section id="competition" class="scroll-mt-24 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8 dark:border-slate-700 dark:bg-slate-800/60 dark:shadow-card-dark">
-        <div class="flex flex-wrap items-baseline gap-3">
-          <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-lg dark:bg-amber-500/20" aria-hidden="true">🏆</span>
-          <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">竞赛获奖经历</h2>
-        </div>
-        <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
-          <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
-            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-amber-500" aria-hidden="true"></span>
-            <span>数模国赛永远在参与</span>
-          </li>
-          <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
-            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-amber-500" aria-hidden="true"></span>
-            <span>电赛、ACM、RM 有空一定了解</span>
-          </li>
-        </ul>
-      </section>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <section id="internship" class="scroll-mt-24 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8 dark:border-slate-700 dark:bg-slate-800/60 dark:shadow-card-dark">
-          <div class="flex flex-wrap items-baseline gap-3">
-            <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-lg dark:bg-emerald-500/20" aria-hidden="true">🍳</span>
-            <h2 class="m-0 text-xl font-bold text-slate-900 dark:text-white">实习经验</h2>
+        <article
+          id="research"
+          class="card-slide flex min-h-0 flex-none shrink-0 flex-col items-center justify-center"
+          aria-roledescription="slide"
+          aria-label="科研经历"
+        >
+          <div class="card-shell h-[60vh] w-full max-w-full shrink-0 overflow-y-auto overflow-x-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8 dark:border-slate-700 dark:bg-slate-800/80 dark:shadow-card-dark">
+            <div class="flex flex-wrap items-baseline gap-3">
+              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-100 text-lg dark:bg-brand-500/20" aria-hidden="true">🔬</span>
+              <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">科研经历</h2>
+            </div>
+            <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
+              <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
+                <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                <span>参与发表一篇 <strong class="font-semibold text-slate-800 dark:text-slate-100">WON</strong> 负一区文章</span>
+              </li>
+              <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
+                <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                <span>一篇 <strong class="font-semibold text-slate-800 dark:text-slate-100">S.H.I.T</strong> 在投</span>
+              </li>
+              <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
+                <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                <span><strong class="font-semibold text-slate-800 dark:text-slate-100">xxxx</strong> 实验室周公下棋全勤奖</span>
+              </li>
+            </ul>
           </div>
-          <p class="mt-4 rounded-xl bg-slate-50 px-4 py-3 text-slate-600 dark:bg-slate-900/50 dark:text-slate-300">
-            家里的厨房暑期优秀实习生
-          </p>
-        </section>
+        </article>
 
-        <section id="social" class="scroll-mt-24 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8 dark:border-slate-700 dark:bg-slate-800/60 dark:shadow-card-dark">
-          <div class="flex flex-wrap items-baseline gap-3">
-            <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-100 text-lg dark:bg-sky-500/20" aria-hidden="true">🌟</span>
-            <h2 class="m-0 text-xl font-bold text-slate-900 dark:text-white">社会实践</h2>
+        <article
+          id="competition"
+          class="card-slide flex min-h-0 flex-none shrink-0 flex-col items-center justify-center"
+          aria-roledescription="slide"
+          aria-label="竞赛获奖"
+        >
+          <div class="card-shell h-[60vh] w-full max-w-full shrink-0 overflow-y-auto overflow-x-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8 dark:border-slate-700 dark:bg-slate-800/80 dark:shadow-card-dark">
+            <div class="flex flex-wrap items-baseline gap-3">
+              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-lg dark:bg-amber-500/20" aria-hidden="true">🏆</span>
+              <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">竞赛获奖经历</h2>
+            </div>
+            <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
+              <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
+                <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-amber-500" aria-hidden="true"></span>
+                <span>数模国赛永远在参与</span>
+              </li>
+              <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
+                <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-amber-500" aria-hidden="true"></span>
+                <span>电赛、ACM、RM 有空一定了解</span>
+              </li>
+            </ul>
           </div>
-          <p class="mt-4 rounded-xl bg-slate-50 px-4 py-3 text-slate-600 dark:bg-slate-900/50 dark:text-slate-300">
-            2008 年感动中国人物得主
-          </p>
-        </section>
+        </article>
+
+        <article
+          id="internship"
+          class="card-slide flex min-h-0 flex-none shrink-0 flex-col items-center justify-center"
+          aria-roledescription="slide"
+          aria-label="实习经验"
+        >
+          <div class="card-shell h-[60vh] w-full max-w-full shrink-0 overflow-y-auto overflow-x-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8 dark:border-slate-700 dark:bg-slate-800/80 dark:shadow-card-dark">
+            <div class="flex flex-wrap items-baseline gap-3">
+              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-lg dark:bg-emerald-500/20" aria-hidden="true">🍳</span>
+              <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">实习经验</h2>
+            </div>
+            <p class="mt-4 rounded-xl bg-slate-50 px-4 py-3 text-slate-600 dark:bg-slate-900/50 dark:text-slate-300">
+              家里的厨房暑期优秀实习生
+            </p>
+          </div>
+        </article>
+
+        <article
+          id="social"
+          class="card-slide flex min-h-0 flex-none shrink-0 flex-col items-center justify-center"
+          aria-roledescription="slide"
+          aria-label="社会实践"
+        >
+          <div class="card-shell h-[60vh] w-full max-w-full shrink-0 overflow-y-auto overflow-x-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8 dark:border-slate-700 dark:bg-slate-800/80 dark:shadow-card-dark">
+            <div class="flex flex-wrap items-baseline gap-3">
+              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-100 text-lg dark:bg-sky-500/20" aria-hidden="true">🌟</span>
+              <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">社会实践</h2>
+            </div>
+            <p class="mt-4 rounded-xl bg-slate-50 px-4 py-3 text-slate-600 dark:bg-slate-900/50 dark:text-slate-300">
+              2008 年感动中国人物得主
+            </p>
+          </div>
+        </article>
       </div>
     </div>
   </main>
 
-  <footer class="border-t border-slate-200 bg-white/60 py-8 text-center text-sm text-slate-500 dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-400">
-    <div class="mx-auto max-w-5xl px-4">
+  <div class="shrink-0 border-t border-slate-200/90 bg-white/90 backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/90">
+    <nav
+      id="bottom-nav"
+      class="px-3 py-3"
+      aria-label="板块导航"
+    >
+      <div class="mx-auto flex max-w-5xl items-center justify-center gap-2 sm:gap-4">
+        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-transparent bg-slate-100 text-lg text-slate-700 shadow-sm transition hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-brand-500/20 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="home" aria-label="首页">🏠</button>
+        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-transparent bg-slate-100 text-lg text-slate-700 shadow-sm transition hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-brand-500/20 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="research" aria-label="科研经历">🔬</button>
+        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-transparent bg-slate-100 text-lg text-slate-700 shadow-sm transition hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-brand-500/20 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="competition" aria-label="竞赛获奖">🏆</button>
+        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-transparent bg-slate-100 text-lg text-slate-700 shadow-sm transition hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-brand-500/20 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="internship" aria-label="实习经验">🍳</button>
+        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-transparent bg-slate-100 text-lg text-slate-700 shadow-sm transition hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-brand-500/20 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="social" aria-label="社会实践">🌟</button>
+      </div>
+    </nav>
+    <footer class="border-t border-slate-200/80 bg-white/50 py-3 text-center text-xs text-slate-500 dark:border-slate-700/80 dark:bg-slate-900/50 dark:text-slate-400">
       <p class="m-0">© <span id="year"></span> 腾小飞 · 复旦大学腾飞书院</p>
-      <p class="mt-2 mb-0 text-xs text-slate-400 dark:text-slate-500">本页为 github.io 静态部署教程示例</p>
-    </div>
-  </footer>
+      <p class="mt-1 mb-0 text-[11px] text-slate-400 dark:text-slate-500">本页为 github.io 静态部署教程示例 · 左右滑动或方向键切换</p>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>

@@ -1,10 +1,18 @@
 const yearElement = document.getElementById('year')
 const themeToggleButton = document.getElementById('theme-toggle')
 const themeLabel = document.querySelector('[data-theme-label]')
-const navLinks = document.querySelectorAll('.nav-link')
-const sections = document.querySelectorAll('section[id]')
+const cardViewport = document.getElementById('card-viewport')
+const cardTrack = document.getElementById('card-track')
+const navDots = document.querySelectorAll('.nav-dot')
+const slideJumpButtons = document.querySelectorAll('[data-slide-to]')
 
 const SECTION_IDS = ['home', 'research', 'competition', 'internship', 'social']
+
+/** 单张幻灯片占视口宽度比例；越小左右邻卡露得越多 */
+const SLIDE_WIDTH_RATIO = 0.78
+
+let currentIndex = 0
+let touchStartX = null
 
 if (yearElement) {
   yearElement.textContent = String(new Date().getFullYear())
@@ -43,23 +51,86 @@ if (themeToggleButton) {
   })
 }
 
+const getIndexForId = (id) => {
+  const i = SECTION_IDS.indexOf(id)
+  return i >= 0 ? i : 0
+}
+
 const applyNavActive = (activeId) => {
-  navLinks.forEach((link) => {
-    const href = link.getAttribute('href')
-    const isActive = href === `#${activeId}`
-    link.classList.toggle('bg-brand-100', isActive)
-    link.classList.toggle('text-brand-800', isActive)
-    link.classList.toggle('dark:bg-brand-500/20', isActive)
-    link.classList.toggle('dark:text-brand-200', isActive)
-    link.classList.toggle('font-semibold', isActive)
-    link.classList.toggle('text-slate-600', !isActive)
-    link.classList.toggle('dark:text-slate-400', !isActive)
+  navDots.forEach((btn) => {
+    const target = btn.getAttribute('data-slide-to')
+    const isActive = target === activeId
+    btn.classList.toggle('border-brand-500', isActive)
+    btn.classList.toggle('bg-brand-100', isActive)
+    btn.classList.toggle('text-brand-800', isActive)
+    btn.classList.toggle('shadow-md', isActive)
+    btn.classList.toggle('dark:border-brand-400', isActive)
+    btn.classList.toggle('dark:bg-brand-500/25', isActive)
+    btn.classList.toggle('dark:text-brand-100', isActive)
+    btn.classList.toggle('bg-slate-100', !isActive)
+    btn.classList.toggle('text-slate-700', !isActive)
+    btn.classList.toggle('dark:bg-slate-800', !isActive)
+    btn.classList.toggle('dark:text-slate-200', !isActive)
     if (isActive) {
-      link.setAttribute('aria-current', 'location')
+      btn.setAttribute('aria-current', 'true')
     } else {
-      link.removeAttribute('aria-current')
+      btn.removeAttribute('aria-current')
     }
   })
+}
+
+const syncSlideWidths = () => {
+  if (!cardViewport || !cardTrack) {
+    return
+  }
+  const viewW = cardViewport.clientWidth
+  const slidePx = Math.max(200, Math.round(viewW * SLIDE_WIDTH_RATIO))
+  Array.from(cardTrack.querySelectorAll('.card-slide')).forEach((el) => {
+    el.style.flex = '0 0 auto'
+    el.style.width = `${slidePx}px`
+    el.style.minWidth = `${slidePx}px`
+    el.style.maxWidth = `${slidePx}px`
+  })
+}
+
+const syncTransform = () => {
+  if (!cardViewport || !cardTrack) {
+    return
+  }
+  const slide = cardTrack.children[currentIndex]
+  if (!slide) {
+    return
+  }
+  const viewW = cardViewport.clientWidth
+  const slideW = slide.offsetWidth
+  const slideLeft = slide.offsetLeft
+  const translateX = (viewW - slideW) / 2 - slideLeft
+  cardTrack.style.transform = `translateX(${translateX}px)`
+}
+
+const syncCarouselLayout = () => {
+  syncSlideWidths()
+  syncTransform()
+}
+
+const goToIndex = (index, { updateHash = true } = {}) => {
+  if (!cardViewport || !cardTrack) {
+    return
+  }
+  const max = SECTION_IDS.length - 1
+  const next = Math.min(Math.max(0, index), max)
+  currentIndex = next
+  syncTransform()
+  const id = SECTION_IDS[currentIndex]
+  applyNavActive(id)
+  if (updateHash) {
+    const url = `${window.location.pathname}${window.location.search}#${id}`
+    window.history.replaceState(null, '', url)
+  }
+}
+
+const goToId = (id, options) => {
+  goToIndex(getIndexForId(id), options)
 }
 
 const getInitialSectionId = () => {
@@ -70,25 +141,84 @@ const getInitialSectionId = () => {
   return 'home'
 }
 
-applyNavActive(getInitialSectionId())
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return
-      }
-      const currentId = entry.target.getAttribute('id')
-      if (!currentId) {
-        return
-      }
-      applyNavActive(currentId)
+if (cardViewport && cardTrack) {
+  currentIndex = getIndexForId(getInitialSectionId())
+  applyNavActive(SECTION_IDS[currentIndex])
+  requestAnimationFrame(() => {
+    syncCarouselLayout()
+    requestAnimationFrame(() => {
+      syncCarouselLayout()
     })
-  },
-  {
-    rootMargin: '-32% 0px -48% 0px',
-    threshold: 0.12
-  }
-)
+  })
 
-sections.forEach((section) => observer.observe(section))
+  window.addEventListener('resize', () => {
+    syncCarouselLayout()
+  })
+
+  navDots.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-slide-to')
+      if (!id) {
+        return
+      }
+      goToId(id)
+    })
+    btn.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
+      event.preventDefault()
+      btn.click()
+    })
+  })
+
+  slideJumpButtons.forEach((el) => {
+    el.addEventListener('click', () => {
+      const id = el.getAttribute('data-slide-to')
+      if (!id) {
+        return
+      }
+      goToId(id)
+    })
+  })
+
+  cardViewport.addEventListener('touchstart', (e) => {
+    if (!e.changedTouches.length) {
+      return
+    }
+    touchStartX = e.changedTouches[0].clientX
+  }, { passive: true })
+
+  cardViewport.addEventListener('touchend', (e) => {
+    if (touchStartX === null || !e.changedTouches.length) {
+      return
+    }
+    const dx = e.changedTouches[0].clientX - touchStartX
+    touchStartX = null
+    if (Math.abs(dx) < 48) {
+      return
+    }
+    if (dx < 0) {
+      goToIndex(currentIndex + 1)
+    } else {
+      goToIndex(currentIndex - 1)
+    }
+  }, { passive: true })
+
+  cardViewport.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight') {
+      event.preventDefault()
+      goToIndex(currentIndex + 1)
+      return
+    }
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault()
+      goToIndex(currentIndex - 1)
+    }
+  })
+
+  window.addEventListener('hashchange', () => {
+    const id = getInitialSectionId()
+    goToId(id, { updateHash: false })
+  })
+}
