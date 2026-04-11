@@ -115,7 +115,7 @@
                 <div class="flex flex-wrap gap-3 pt-2">
                   <button
                     type="button"
-                    class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-brand-600/25 transition hover:from-brand-700 hover:to-brand-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900"
+                    class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-brand-600/25 transition hover:from-brand-700 hover:to-brand-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:from-[var(--nav-dot-active-from)] dark:to-[var(--nav-dot-active-to)] dark:shadow-[0_4px_14px_rgb(129_140_248_/_0.35)] dark:hover:from-[var(--primary-hover)] dark:hover:to-[var(--primary)] dark:hover:shadow-[0_6px_24px_rgb(129_140_248_/_0.42)] dark:focus:ring-indigo-400 dark:focus:ring-offset-slate-900"
                     data-slide-to="research"
                   >
                     浏览经历
@@ -131,14 +131,16 @@
                 </div>
               </div>
               <div class="flex w-full flex-col items-center gap-5">
-                <img
-                  src="icons/秘书处_线条.png"
-                  alt="腾小飞"
-                  width="128"
-                  height="128"
-                  decoding="async"
-                  class="h-28 w-28 shrink-0 rounded-full border-4 border-white object-cover shadow-md ring-2 ring-brand-300/90 dark:border-slate-600 dark:ring-brand-500/35 sm:h-32 sm:w-32"
-                />
+                <div class="h-28 w-28 shrink-0 overflow-hidden rounded-full border-4 border-white bg-white shadow-md ring-2 ring-brand-300/90 dark:border-slate-600 dark:bg-slate-800 dark:ring-brand-500/35 sm:h-32 sm:w-32">
+                  <img
+                    src="icons/秘书处_线条.png"
+                    alt="腾小飞"
+                    width="128"
+                    height="128"
+                    decoding="async"
+                    class="h-full w-full object-cover"
+                  />
+                </div>
                 <aside class="w-full rounded-2xl border border-slate-200/60 bg-slate-50/80 p-4 text-xs leading-snug backdrop-blur-sm dark:border-slate-600/60 dark:bg-slate-900/50" aria-label="快速信息">
                 <h2 class="mt-0 text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">About Me</h2>
                 <dl class="mt-3 space-y-3">
@@ -187,13 +189,9 @@
               aria-hidden="true"
             />
             <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-              <div class="flex flex-wrap items-baseline gap-2">
-                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-100 dark:bg-brand-500/15">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 shrink-0 text-brand-700 dark:text-brand-200" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
-                  </svg>
-                </span>
-                <h2 class="m-0 text-lg font-bold tracking-tight text-slate-900 dark:text-white sm:text-xl">技能</h2>
+              <div class="flex flex-wrap items-center gap-3">
+                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
+                <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">技能</h2>
               </div>
               <div class="mt-4 grid min-h-0 grid-cols-3 gap-2 text-[11px] leading-snug text-slate-600 dark:text-slate-300 sm:gap-3 sm:text-xs">
                 <div class="min-w-0 space-y-4">
@@ -201,11 +199,11 @@
                     <h3 class="m-0 text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Language</h3>
                     <ul class="mt-1.5 list-none space-y-1 p-0">
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>Chinese</span>
                       </li>
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>English</span>
                       </li>
                     </ul>
@@ -214,15 +212,15 @@
                     <h3 class="m-0 text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Interests</h3>
                     <ul class="mt-1.5 list-none space-y-1 p-0">
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>Photography</span>
                       </li>
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>Painting</span>
                       </li>
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>Go-kart</span>
                       </li>
                     </ul>
@@ -233,31 +231,31 @@
                     <h3 class="m-0 text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Tech</h3>
                     <ul class="mt-1.5 list-none space-y-1 p-0">
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>Python</span>
                       </li>
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>C++</span>
                       </li>
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>Unity</span>
                       </li>
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>Godot</span>
                       </li>
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>Matlab</span>
                       </li>
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>SPSS</span>
                       </li>
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>SQL</span>
                       </li>
                     </ul>
@@ -268,15 +266,15 @@
                     <h3 class="m-0 text-[10px] font-semibold uppercase leading-snug text-slate-500 dark:text-slate-400">Reading list（寻找书友中……）</h3>
                     <ul class="mt-1.5 list-none space-y-1 p-0">
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>《人间词话》</span>
                       </li>
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>《人间草木》</span>
                       </li>
                       <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                         <span>《百年孤独》</span>
                       </li>
                     </ul>
@@ -304,21 +302,21 @@
               aria-hidden="true"
             />
             <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-              <div class="flex flex-wrap items-baseline gap-3">
-                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-100 text-lg dark:bg-brand-500/15" aria-hidden="true">🔬</span>
+              <div class="flex flex-wrap items-center gap-3">
+                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
                 <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">科研经历</h2>
               </div>
               <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
                 <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                   <span>参与发表一篇 <strong class="font-semibold text-slate-800 dark:text-slate-100">WON</strong> 负一区文章</span>
                 </li>
                 <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                   <span>一篇 <strong class="font-semibold text-slate-800 dark:text-slate-100">S.H.I.T</strong> 在投</span>
                 </li>
                 <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                   <span><strong class="font-semibold text-slate-800 dark:text-slate-100">xxxx</strong> 实验室周公下棋全勤奖</span>
                 </li>
               </ul>
@@ -343,17 +341,17 @@
               aria-hidden="true"
             />
             <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-              <div class="flex flex-wrap items-baseline gap-3">
-                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-100 text-lg dark:bg-brand-500/20" aria-hidden="true">🏆</span>
+              <div class="flex flex-wrap items-center gap-3">
+                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
                 <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">竞赛获奖经历</h2>
               </div>
               <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
                 <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                   <span>数模国赛<span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">永远在参与</span></span>
                 </li>
                 <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                   <span>电赛、ACM、RM <span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">有空一定了解</span></span>
                 </li>
               </ul>
@@ -378,17 +376,17 @@
               aria-hidden="true"
             />
             <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-              <div class="flex flex-wrap items-baseline gap-3">
-                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-100 text-lg dark:bg-brand-500/20" aria-hidden="true">🍳</span>
+              <div class="flex flex-wrap items-center gap-3">
+                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
                 <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">实习经验</h2>
               </div>
               <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
                 <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                   <span><span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">家里厨房</span>暑期优秀实习生</span>
                 </li>
                 <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                   <span>深度参与<span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">撸猫遛狗</span>项目，实习认证时长 100h+</span>
                 </li>
               </ul>
@@ -413,17 +411,17 @@
               aria-hidden="true"
             />
             <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-              <div class="flex flex-wrap items-baseline gap-3">
-                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-100 text-lg dark:bg-brand-500/20" aria-hidden="true">🌟</span>
+              <div class="flex flex-wrap items-center gap-3">
+                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
                 <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">社会实践</h2>
               </div>
               <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
                 <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                   <span>2008 年感动中国人物得主</span>
                 </li>
                 <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
                   <span>被窝测评大师</span>
                 </li>
               </ul>
