@@ -1,0 +1,89 @@
+/**
+ * theme.css — 全站配色唯一入口
+ *
+ * 与 repo.md 一致：所有颜色走 CSS 变量；换肤可改本文件，或把 :root 整段复制为
+ * html.theme-名字 { ... } 后用 JS 切换（可与 html.dark 叠加以便深色下换色相）。
+ *
+ * 修改方式：
+ * 1. 先改「语义三色」hex（对照 color.md），再按需调整「Tailwind 色阶」里的 RGB 三元组。
+ * 2. RGB 须为空格分隔的三个 0–255 整数，以便 Tailwind 生成 bg-brand-500/50 等透明度类。
+ * 3. --shadow-card*、导航点渐变等若需跟主色联动，可改成基于同一 accent 的 rgb(...)。
+ */
+
+:root {
+  /* ===== 语义三色（文档 / 心理模型，改配色从这里对齐）===== */
+  --palette-doc-core: #afc8da;
+  --palette-doc-surface: #feffff;
+  --palette-doc-accent: #47709b;
+
+  /* ===== Tailwind：brand / mist / ink（空格分隔 R G B）===== */
+  --tw-brand-50: 245 249 251;
+  --tw-brand-100: 233 241 246;
+  --tw-brand-200: 220 233 241;
+  --tw-brand-300: 201 219 232;
+  --tw-brand-400: 184 207 224;
+  --tw-brand-500: 175 200 218;
+  --tw-brand-600: 71 112 155;
+  --tw-brand-700: 58 96 133;
+
+  --tw-mist-white: 254 255 255;
+  --tw-ink-950: 2 6 23;
+
+  /* ===== 卡片与导航投影（完整 box-shadow 字符串）===== */
+  --shadow-card: 0 8px 30px rgb(71 112 155 / 0.08);
+  --shadow-card-dark: 0 10px 40px rgb(0 0 0 / 0.45);
+
+  /* ===== 底部圆点导航：激活态渐变与阴影 ===== */
+  --nav-dot-active-from: #47709b;
+  --nav-dot-active-to: #afc8da;
+  --nav-dot-active-shadow: 0 8px 24px rgb(71 112 155 / 0.28);
+  --nav-dot-active-shadow-dark: 0 8px 24px rgb(71 112 155 / 0.4);
+
+  /* ===== 旧版 layout（style.css）与通用语义 ===== */
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --primary: #47709b;
+  --primary-hover: #3a6085;
+  --accent: #22c55e;
+  --border: #e2e8f0;
+  --shadow: 0 8px 30px rgb(71 112 155 / 0.06);
+  --on-primary: #ffffff;
+  --outline-hover-bg: #eaf1ff;
+  --site-header-bg: rgb(245 249 251 / 0.92);
+}
+
+/* 深色：与 script.js 一致，class 加在 document.documentElement（html）上 */
+html.dark {
+  --bg: #020617;
+  --surface: #0f172a;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --primary: #818cf8;
+  --primary-hover: #6366f1;
+  --accent: #34d399;
+  --border: #1e293b;
+  --shadow: 0 10px 40px rgb(0 0 0 / 0.5);
+  --outline-hover-bg: rgb(129 140 248 / 0.12);
+  --site-header-bg: rgb(15 23 42 / 0.92);
+
+  --nav-dot-active-from: #818cf8;
+  --nav-dot-active-to: #c4b5fd;
+  --nav-dot-active-shadow: 0 8px 24px rgb(129 140 248 / 0.35);
+  --nav-dot-active-shadow-dark: 0 8px 24px rgb(129 140 248 / 0.5);
+}
+
+/*
+ * 预设示例（取消注释并给 body 加 class 即可）：
+ *
+ * html.theme-violet {
+ *   --tw-brand-500: 196 181 253;
+ *   --tw-brand-600: 124 58 237;
+ *   --tw-brand-700: 109 40 217;
+ *   --primary: #7c3aed;
+ *   --primary-hover: #6d28d9;
+ *   --nav-dot-active-from: #6d28d9;
+ *   --nav-dot-active-to: #c4b5fd;
+ * }
+ */

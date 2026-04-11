@@ -6,10 +6,13 @@ const cardTrack = document.getElementById('card-track')
 const navDots = document.querySelectorAll('.nav-dot')
 const slideJumpButtons = document.querySelectorAll('[data-slide-to]:not(.nav-dot)')
 
-const SECTION_IDS = ['home', 'research', 'competition', 'internship', 'social']
+const SECTION_IDS = ['home', 'skills', 'research', 'competition', 'internship', 'social']
 
 /** 单张幻灯片占视口宽度比例；越小左右邻卡露得越多 */
 const SLIDE_WIDTH_RATIO = 0.78
+
+/** 卡片比轨道略矮的像素，留出上下空隙以便 box-shadow 不被裁切 */
+const CARD_VERTICAL_INSET = 12
 
 let currentIndex = 0
 let touchStartX = null
@@ -77,22 +80,7 @@ const applyNavActive = (activeId) => {
       label.classList.toggle('opacity-0', !isActive)
     }
 
-    btn.classList.toggle('border-brand-500', isActive)
-    btn.classList.toggle('border-slate-200/80', !isActive)
-    btn.classList.toggle('bg-brand-50', isActive)
-    btn.classList.toggle('bg-white', !isActive)
-    btn.classList.toggle('text-brand-800', isActive)
-    btn.classList.toggle('text-slate-700', !isActive)
-    btn.classList.toggle('shadow-lg', isActive)
-    btn.classList.toggle('shadow-card', !isActive)
-    btn.classList.toggle('dark:border-brand-400', isActive)
-    btn.classList.toggle('dark:border-slate-700', !isActive)
-    btn.classList.toggle('dark:bg-brand-500/25', isActive)
-    btn.classList.toggle('dark:bg-slate-800/90', !isActive)
-    btn.classList.toggle('dark:text-brand-100', isActive)
-    btn.classList.toggle('dark:text-slate-200', !isActive)
-    btn.classList.toggle('dark:shadow-lg', isActive)
-    btn.classList.toggle('dark:shadow-card-dark', !isActive)
+    btn.classList.toggle('active', isActive)
     if (isActive) {
       btn.setAttribute('aria-current', 'true')
     } else {
@@ -115,6 +103,23 @@ const syncSlideWidths = () => {
   })
 }
 
+/** 让所有 .card-slide 与轨道同高，保证每张卡片纵向长度一致（不随单页内容变矮变高） */
+const syncSlideHeights = () => {
+  if (!cardTrack) {
+    return
+  }
+  const trackH = cardTrack.clientHeight
+  if (trackH <= 0) {
+    return
+  }
+  const slideH = Math.max(160, trackH - CARD_VERTICAL_INSET)
+  Array.from(cardTrack.querySelectorAll('.card-slide')).forEach((el) => {
+    el.style.height = `${slideH}px`
+    el.style.minHeight = `${slideH}px`
+    el.style.alignSelf = 'center'
+  })
+}
+
 const syncTransform = () => {
   if (!cardViewport || !cardTrack) {
     return
@@ -132,6 +137,7 @@ const syncTransform = () => {
 
 const syncCarouselLayout = () => {
   syncSlideWidths()
+  syncSlideHeights()
   syncTransform()
 }
 
@@ -176,6 +182,13 @@ if (cardViewport && cardTrack) {
   window.addEventListener('resize', () => {
     syncCarouselLayout()
   })
+
+  if (typeof ResizeObserver !== 'undefined') {
+    const carouselResizeObserver = new ResizeObserver(() => {
+      syncCarouselLayout()
+    })
+    carouselResizeObserver.observe(cardViewport)
+  }
 
   navDots.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -226,6 +239,53 @@ if (cardViewport && cardTrack) {
       goToIndex(currentIndex - 1)
     }
   }, { passive: true })
+
+  const findVerticalScrollable = (start, stopAncestor) => {
+    let el = start
+    while (el && el !== stopAncestor) {
+      if (!(el instanceof Element)) {
+        el = el.parentElement
+        continue
+      }
+      const st = window.getComputedStyle(el)
+      const oy = st.overflowY
+      if ((oy === 'auto' || oy === 'scroll' || oy === 'overlay') && el.scrollHeight > el.clientHeight + 2) {
+        return el
+      }
+      el = el.parentElement
+    }
+    return null
+  }
+
+  const handleCarouselWheel = (event) => {
+    if (isArrowCarouselBlockedTarget(event.target)) {
+      return
+    }
+    if (event.deltaY === 0) {
+      return
+    }
+    if (Math.abs(event.deltaY) < Math.abs(event.deltaX)) {
+      return
+    }
+    const scrollEl = findVerticalScrollable(event.target, cardViewport)
+    if (scrollEl) {
+      const maxScroll = scrollEl.scrollHeight - scrollEl.clientHeight
+      if (event.deltaY > 0 && scrollEl.scrollTop < maxScroll - 1) {
+        return
+      }
+      if (event.deltaY < 0 && scrollEl.scrollTop > 0) {
+        return
+      }
+    }
+    event.preventDefault()
+    if (event.deltaY > 0) {
+      goToIndex(currentIndex + 1)
+      return
+    }
+    goToIndex(currentIndex - 1)
+  }
+
+  cardViewport.addEventListener('wheel', handleCarouselWheel, { passive: false })
 
   const isArrowCarouselBlockedTarget = (target) => {
     if (!target || !target.closest) {

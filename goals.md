@@ -38,3 +38,32 @@
 
 - 2008 年感动中国人物得主
 - 被窝测评大师
+
+## 技能
+
+### Language
+
+- Chinese
+- English
+
+### Tech
+
+- Python
+- C++
+- Unity
+- Godot
+- Matlab
+- SPSS
+- SQL
+
+### Interests
+
+- Photography
+- Painting
+- Go-kart
+
+### Reading list（寻找书友中……）
+
+- 《人间词话》
+- 《人间草木》
+- 《百年孤独》

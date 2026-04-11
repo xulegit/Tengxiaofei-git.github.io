@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="腾小飞 — 复旦大学腾飞书院工科学生个人名片：简介、科研、竞赛、实习与社会实践。">
+  <meta name="description" content="腾小飞 — 复旦大学腾飞书院工科学生个人名片：简介、技能与兴趣、科研、竞赛、实习与社会实践。">
   <title>腾小飞 · 个人名片</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -18,34 +20,39 @@
             sans: ['"Noto Sans SC"', 'system-ui', 'sans-serif']
           },
           colors: {
+            /* 色值统一定义在 theme.css 的 --tw-* 变量 */
             brand: {
-              50: '#fff7ed',
-              100: '#ffedd5',
-              400: '#fb923c',
-              500: '#f97316',
-              600: '#ea580c',
-              700: '#c2410c'
+              50: 'rgb(var(--tw-brand-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-brand-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-brand-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-brand-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-brand-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-brand-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-brand-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-brand-700) / <alpha-value>)'
+            },
+            mist: {
+              white: 'rgb(var(--tw-mist-white) / <alpha-value>)'
             },
             ink: {
-              950: '#0c1222'
+              950: 'rgb(var(--tw-ink-950) / <alpha-value>)'
             }
           },
           boxShadow: {
-            card: '0 4px 6px -1px rgb(0 0 0 / 0.06), 0 10px 24px -4px rgb(15 23 42 / 0.08)',
-            'card-dark': '0 4px 6px -1px rgb(0 0 0 / 0.3), 0 12px 28px -6px rgb(0 0 0 / 0.45)'
+            card: 'var(--shadow-card)',
+            'card-dark': 'var(--shadow-card-dark)'
           }
         }
       }
     }
   </script>
 </head>
-<body class="flex min-h-screen flex-col bg-gradient-to-b from-slate-50 via-white to-brand-50/40 text-slate-800 antialiased transition-colors duration-300 dark:from-ink-950 dark:via-slate-900 dark:to-slate-900 dark:text-slate-100">
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white focus:outline-none focus:ring-2 focus:ring-brand-400">跳到主要内容</a>
+<body class="flex min-h-screen flex-col bg-gradient-to-b from-brand-200 via-mist-white to-brand-100 text-slate-800 antialiased transition-colors duration-300 dark:from-ink-950 dark:via-slate-950 dark:to-slate-900 dark:text-slate-100">  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white focus:outline-none focus:ring-2 focus:ring-brand-400">跳到主要内容</a>
 
-  <header class="z-30 shrink-0 border-b border-slate-200/80 bg-white/80 backdrop-blur-md dark:border-slate-700/80 dark:bg-slate-900/80">
+  <header class="z-30 shrink-0 border-b border-slate-200/60 bg-mist-white/85 backdrop-blur-md dark:border-slate-700/60 dark:bg-slate-900/80">
     <div class="mx-auto flex w-full max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
       <p class="m-0 text-lg font-bold tracking-tight text-slate-900 dark:text-white">腾小飞</p>
-      <button id="theme-toggle" type="button" class="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 shadow-sm hover:border-brand-300 hover:bg-brand-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-brand-500 dark:hover:bg-slate-700" aria-label="切换深色或浅色主题" aria-pressed="false">
+      <button id="theme-toggle" type="button" class="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-slate-200/60 bg-mist-white/90 px-3 py-1.5 text-sm font-medium text-slate-700 shadow-sm hover:border-brand-400 hover:bg-brand-100/90 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-brand-500 dark:hover:bg-slate-700" aria-label="切换深色或浅色主题" aria-pressed="false">
         <span class="hidden sm:inline" data-theme-label>浅色</span>
         <span aria-hidden="true" class="text-base">◐</span>
       </button>
@@ -55,27 +62,37 @@
   <main id="main-content" class="flex min-h-0 flex-1 flex-col">
     <div
       id="card-viewport"
-      class="mx-auto flex min-h-0 w-full max-w-5xl flex-1 touch-pan-y overflow-hidden px-3 pt-4 sm:px-6 sm:pt-6"
+      class="mx-auto flex min-h-0 w-full max-w-5xl flex-1 flex-col touch-pan-y overflow-hidden px-3 pb-3 pt-4 sm:px-6 sm:pb-4 sm:pt-6"
       aria-roledescription="carousel"
       aria-label="个人名片各板块，可左右滑动切换"
       role="region"
     >
       <div
         id="card-track"
-        class="relative flex h-full w-full gap-4 will-change-transform transition-transform duration-300 ease-out motion-reduce:transition-none sm:gap-6"
+        class="relative flex min-h-0 w-full flex-1 flex-row items-center gap-4 will-change-transform transition-transform duration-300 ease-out motion-reduce:transition-none sm:gap-6"
         style="transform: translateX(0)"
       >
         <article
           id="home"
-          class="card-slide flex min-h-0 flex-none shrink-0 flex-col items-center justify-center"
+          class="card-slide flex h-full min-h-0 flex-none shrink-0 flex-col"
           aria-roledescription="slide"
           aria-label="首页"
         >
-          <div class="card-shell h-[60vh] w-full max-w-full shrink-0 overflow-y-auto overflow-x-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8 dark:border-slate-700 dark:bg-slate-800/80 dark:shadow-card-dark">
+          <div class="card-shell relative flex h-full min-h-0 w-full max-w-full flex-col overflow-hidden rounded-2xl border border-slate-200/60 bg-mist-white/90 shadow-card backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-900/60 dark:shadow-card-dark">
+            <img
+              src="icons/FDU.png"
+              alt=""
+              width="320"
+              height="320"
+              decoding="async"
+              class="pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
+              aria-hidden="true"
+            />
+            <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
               <div class="space-y-5">
                 <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl">
-                  你好，我是<span class="bg-gradient-to-r from-brand-600 to-amber-500 bg-clip-text text-transparent dark:from-brand-400 dark:to-amber-300">腾小飞</span>
+                  你好，我是<span class="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 bg-clip-text text-transparent dark:from-brand-300 dark:via-brand-400 dark:to-brand-500">腾小飞</span>
                 </h1>
                 <p class="inline-flex max-w-xl flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-400 sm:text-base">
                   <span class="sr-only">Location at</span>
@@ -98,12 +115,12 @@
                 <div class="flex flex-wrap gap-3 pt-2">
                   <button
                     type="button"
-                    class="inline-flex items-center justify-center rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-brand-600/25 transition hover:bg-brand-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900"
+                    class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-brand-600/25 transition hover:from-brand-700 hover:to-brand-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900"
                     data-slide-to="research"
                   >
                     浏览经历
                   </button>
-                  <a class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 no-underline transition hover:border-brand-300 hover:bg-brand-50 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:border-brand-500 dark:hover:bg-slate-700 dark:focus:ring-offset-slate-900" href="https://github.com/Tengxiaofei-git/Tengxiaofei-git.github.io" target="_blank" rel="noopener noreferrer">
+                  <a class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200/60 bg-mist-white/90 px-5 py-2.5 text-sm font-semibold text-slate-800 no-underline shadow-sm backdrop-blur-sm transition hover:border-brand-400 hover:bg-brand-100/80 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:border-slate-600 dark:bg-slate-800/80 dark:text-slate-100 dark:hover:border-brand-500 dark:hover:bg-slate-700/90 dark:focus:ring-offset-slate-900" href="https://github.com/Tengxiaofei-git/Tengxiaofei-git.github.io" target="_blank" rel="noopener noreferrer">
                     <span class="inline-flex shrink-0 text-slate-800 dark:text-slate-100" aria-hidden="true">
                       <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
                         <path d="M7.999933333333333 0.35346666666666665c-1.8616000000000001 0.00006666666666666667 -3.662466666666666 0.6626 -5.080266666666667 1.8689333333333331C1.5017999999999998 3.4287333333333327 0.5594666666666666 5.100266666666666 0.26126666666666665 6.937866666666666c-0.29819999999999997 1.8375333333333332 0.0672 3.7212666666666667 1.0308 5.3141333333333325 0.9635333333333334 1.5927333333333333 2.462466666666667 2.790733333333333 4.228533333333333 3.3795333333333333 0.39199999999999996 0.0686 0.5389999999999999 -0.1666 0.5389999999999999 -0.37239999999999995 0 -0.18619999999999998 -0.0098 -0.8036 -0.0098 -1.4602 -1.9697999999999998 0.36260000000000003 -2.4794 -0.4801333333333333 -2.6361999999999997 -0.9211333333333332 -0.174 -0.4288666666666666 -0.4498 -0.8089333333333333 -0.8036 -1.1074 -0.2744 -0.147 -0.6664 -0.5095999999999999 -0.0098 -0.5194 0.2507333333333333 0.027200000000000002 0.4911333333333333 0.11446666666666666 0.7010000000000001 0.2543333333333333 0.2098 0.13986666666666664 0.3828666666666667 0.3283333333333333 0.5044 0.5492666666666666 0.10719999999999999 0.1926 0.25139999999999996 0.36219999999999997 0.4242666666666666 0.499 0.17286666666666664 0.13679999999999998 0.37106666666666666 0.2382 0.5831999999999999 0.29819999999999997 0.2121333333333333 0.060066666666666664 0.434 0.07773333333333332 0.6529333333333334 0.05193333333333333s0.43066666666666664 -0.09453333333333333 0.6229333333333333 -0.2023333333333333c0.03393333333333333 -0.39859999999999995 0.2116 -0.7712666666666667 0.4998666666666667 -1.0486 -1.7444 -0.19599999999999998 -3.5671999999999997 -0.8722 -3.5671999999999997 -3.8709999999999996 -0.011 -0.7791333333333333 0.27646666666666664 -1.533 0.8036 -2.106933333333333 -0.23966666666666664 -0.6772 -0.21166666666666667 -1.4203999999999999 0.0784 -2.0776 0 0 0.6565333333333333 -0.20579999999999998 2.1559999999999997 0.8036 1.2828 -0.3528 2.6370666666666667 -0.3528 3.9199333333333333 0 1.4993999999999998 -1.0191999999999999 2.1559999999999997 -0.8036 2.1559999999999997 -0.8036 0.29006666666666664 0.6572 0.3181333333333333 1.4003999999999999 0.0784 2.0776 0.5286 0.5729333333333333 0.8164666666666666 1.3275333333333332 0.8036 2.106933333333333 0 3.0086 -1.8325999999999998 3.675 -3.577 3.8709999999999996 0.18706666666666666 0.1896 0.3311333333333333 0.41733333333333333 0.42246666666666666 0.6675333333333333 0.09133333333333334 0.2503333333333333 0.1277333333333333 0.5173333333333333 0.10673333333333332 0.7828666666666666 0 1.0486666666666666 -0.0098 1.8913333333333333 -0.0098 2.1559333333333335 0 0.20579999999999998 0.147 0.4508 0.5389999999999999 0.37239999999999995 1.7629333333333332 -0.5935333333333332 3.2575333333333334 -1.7943333333333333 4.217 -3.3879333333333332 0.9595333333333333 -1.5936666666666666 1.3214 -3.476466666666666 1.0211333333333332 -5.312266666666666 -0.3002666666666667 -1.8357333333333332 -1.2431333333333332 -3.5050666666666666 -2.6604 -4.709933333333333C11.659466666666667 1.0164666666666666 9.860133333333334 0.3544666666666666 7.999933333333333 0.35346666666666665Z" />
@@ -113,132 +130,304 @@
                   </a>
                 </div>
               </div>
-              <aside class="rounded-2xl border border-slate-200/70 bg-slate-50/80 p-5 dark:border-slate-600 dark:bg-slate-900/40" aria-label="快速信息">
-                <h2 class="mt-0 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">About Me</h2>
-                <dl class="mt-4 space-y-4">
+              <div class="flex w-full flex-col items-center gap-5">
+                <img
+                  src="icons/秘书处_线条.png"
+                  alt="腾小飞"
+                  width="128"
+                  height="128"
+                  decoding="async"
+                  class="h-28 w-28 shrink-0 rounded-full border-4 border-white object-cover shadow-md ring-2 ring-brand-300/90 dark:border-slate-600 dark:ring-brand-500/35 sm:h-32 sm:w-32"
+                />
+                <aside class="w-full rounded-2xl border border-slate-200/60 bg-slate-50/80 p-4 text-xs leading-snug backdrop-blur-sm dark:border-slate-600/60 dark:bg-slate-900/50" aria-label="快速信息">
+                <h2 class="mt-0 text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">About Me</h2>
+                <dl class="mt-3 space-y-3">
                   <div>
-                    <dt class="text-xs font-medium text-slate-500 dark:text-slate-400">年龄</dt>
-                    <dd class="mt-0.5 text-slate-800 dark:text-slate-200">永远的 18 岁</dd>
+                    <dt class="text-[10px] font-medium text-slate-500 dark:text-slate-400">年龄</dt>
+                    <dd class="mt-0.5 text-xs text-slate-800 dark:text-slate-200">永远的 18 岁</dd>
                   </div>
                   <div>
-                    <dt class="text-xs font-medium text-slate-500 dark:text-slate-400">爱好</dt>
-                    <dd class="mt-0.5 text-slate-800 dark:text-slate-200">探索世界</dd>
+                    <dt class="text-[10px] font-medium text-slate-500 dark:text-slate-400">爱好</dt>
+                    <dd class="mt-0.5 text-xs text-slate-800 dark:text-slate-200">探索世界</dd>
                   </div>
                   <div>
-                    <dt class="text-xs font-medium text-slate-500 dark:text-slate-400">GitHub</dt>
-                    <dd class="mt-0.5 text-slate-800 dark:text-slate-200">
-                      <a class="font-medium text-brand-700 no-underline hover:underline dark:text-brand-300" href="https://github.com/Tengxiaofei-git" target="_blank" rel="noopener noreferrer">Tengxiaofei-git</a>
+                    <dt class="text-[10px] font-medium text-slate-500 dark:text-slate-400">GitHub</dt>
+                    <dd class="mt-0.5 text-xs text-slate-800 dark:text-slate-200">
+                      <a class="font-medium text-slate-800 no-underline hover:underline dark:text-slate-200" href="https://github.com/Tengxiaofei-git" target="_blank" rel="noopener noreferrer">Tengxiaofei-git</a>
                     </dd>
                   </div>
                   <div>
-                    <dt class="text-xs font-medium text-slate-500 dark:text-slate-400">联系方式</dt>
-                    <dd class="mt-0.5 text-slate-800 dark:text-slate-200">
+                    <dt class="text-[10px] font-medium text-slate-500 dark:text-slate-400">联系方式</dt>
+                    <dd class="mt-0.5 text-xs text-slate-800 dark:text-slate-200">
                       <a class="text-slate-700 no-underline hover:underline dark:text-slate-300" href="mailto:3871162801@qq.com">3871162801@qq.com</a>
                     </dd>
                   </div>
                 </dl>
-              </aside>
+                </aside>
+              </div>
+            </div>
+            </div>
+          </div>
+        </article>
+
+        <article
+          id="skills"
+          class="card-slide flex h-full min-h-0 flex-none shrink-0 flex-col"
+          aria-roledescription="slide"
+          aria-label="技能与兴趣"
+        >
+          <div class="card-shell relative flex h-full min-h-0 w-full max-w-full flex-col overflow-hidden rounded-2xl border border-slate-200/60 bg-mist-white/90 shadow-card backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-900/60 dark:shadow-card-dark">
+            <img
+              src="icons/FDU.png"
+              alt=""
+              width="320"
+              height="320"
+              decoding="async"
+              class="pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
+              aria-hidden="true"
+            />
+            <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              <div class="flex flex-wrap items-baseline gap-2">
+                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-100 dark:bg-brand-500/15">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 shrink-0 text-brand-700 dark:text-brand-200" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                  </svg>
+                </span>
+                <h2 class="m-0 text-lg font-bold tracking-tight text-slate-900 dark:text-white sm:text-xl">技能</h2>
+              </div>
+              <div class="mt-4 grid min-h-0 grid-cols-3 gap-2 text-[11px] leading-snug text-slate-600 dark:text-slate-300 sm:gap-3 sm:text-xs">
+                <div class="min-w-0 space-y-4">
+                  <section>
+                    <h3 class="m-0 text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Language</h3>
+                    <ul class="mt-1.5 list-none space-y-1 p-0">
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>Chinese</span>
+                      </li>
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>English</span>
+                      </li>
+                    </ul>
+                  </section>
+                  <section>
+                    <h3 class="m-0 text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Interests</h3>
+                    <ul class="mt-1.5 list-none space-y-1 p-0">
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>Photography</span>
+                      </li>
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>Painting</span>
+                      </li>
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>Go-kart</span>
+                      </li>
+                    </ul>
+                  </section>
+                </div>
+                <div class="min-w-0">
+                  <section>
+                    <h3 class="m-0 text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Tech</h3>
+                    <ul class="mt-1.5 list-none space-y-1 p-0">
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>Python</span>
+                      </li>
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>C++</span>
+                      </li>
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>Unity</span>
+                      </li>
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>Godot</span>
+                      </li>
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>Matlab</span>
+                      </li>
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>SPSS</span>
+                      </li>
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>SQL</span>
+                      </li>
+                    </ul>
+                  </section>
+                </div>
+                <div class="min-w-0">
+                  <section>
+                    <h3 class="m-0 text-[10px] font-semibold uppercase leading-snug text-slate-500 dark:text-slate-400">Reading list（寻找书友中……）</h3>
+                    <ul class="mt-1.5 list-none space-y-1 p-0">
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>《人间词话》</span>
+                      </li>
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>《人间草木》</span>
+                      </li>
+                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
+                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                        <span>《百年孤独》</span>
+                      </li>
+                    </ul>
+                  </section>
+                </div>
+              </div>
             </div>
           </div>
         </article>
 
         <article
           id="research"
-          class="card-slide flex min-h-0 flex-none shrink-0 flex-col items-center justify-center"
+          class="card-slide flex h-full min-h-0 flex-none shrink-0 flex-col"
           aria-roledescription="slide"
           aria-label="科研经历"
         >
-          <div class="card-shell h-[60vh] w-full max-w-full shrink-0 overflow-y-auto overflow-x-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8 dark:border-slate-700 dark:bg-slate-800/80 dark:shadow-card-dark">
-            <div class="flex flex-wrap items-baseline gap-3">
-              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-100 text-lg dark:bg-brand-500/20" aria-hidden="true">🔬</span>
-              <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">科研经历</h2>
+          <div class="card-shell relative flex h-full min-h-0 w-full max-w-full flex-col overflow-hidden rounded-2xl border border-slate-200/60 bg-mist-white/90 shadow-card backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-900/60 dark:shadow-card-dark">
+            <img
+              src="icons/FDU.png"
+              alt=""
+              width="320"
+              height="320"
+              decoding="async"
+              class="pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
+              aria-hidden="true"
+            />
+            <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              <div class="flex flex-wrap items-baseline gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-100 text-lg dark:bg-brand-500/15" aria-hidden="true">🔬</span>
+                <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">科研经历</h2>
+              </div>
+              <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
+                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>参与发表一篇 <strong class="font-semibold text-slate-800 dark:text-slate-100">WON</strong> 负一区文章</span>
+                </li>
+                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>一篇 <strong class="font-semibold text-slate-800 dark:text-slate-100">S.H.I.T</strong> 在投</span>
+                </li>
+                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span><strong class="font-semibold text-slate-800 dark:text-slate-100">xxxx</strong> 实验室周公下棋全勤奖</span>
+                </li>
+              </ul>
             </div>
-            <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
-              <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
-                <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
-                <span>参与发表一篇 <strong class="font-semibold text-slate-800 dark:text-slate-100">WON</strong> 负一区文章</span>
-              </li>
-              <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
-                <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
-                <span>一篇 <strong class="font-semibold text-slate-800 dark:text-slate-100">S.H.I.T</strong> 在投</span>
-              </li>
-              <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
-                <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
-                <span><strong class="font-semibold text-slate-800 dark:text-slate-100">xxxx</strong> 实验室周公下棋全勤奖</span>
-              </li>
-            </ul>
           </div>
         </article>
 
         <article
           id="competition"
-          class="card-slide flex min-h-0 flex-none shrink-0 flex-col items-center justify-center"
+          class="card-slide flex h-full min-h-0 flex-none shrink-0 flex-col"
           aria-roledescription="slide"
           aria-label="竞赛获奖"
         >
-          <div class="card-shell h-[60vh] w-full max-w-full shrink-0 overflow-y-auto overflow-x-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8 dark:border-slate-700 dark:bg-slate-800/80 dark:shadow-card-dark">
-            <div class="flex flex-wrap items-baseline gap-3">
-              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-lg dark:bg-amber-500/20" aria-hidden="true">🏆</span>
-              <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">竞赛获奖经历</h2>
+          <div class="card-shell relative flex h-full min-h-0 w-full max-w-full flex-col overflow-hidden rounded-2xl border border-slate-200/60 bg-mist-white/90 shadow-card backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-900/60 dark:shadow-card-dark">
+            <img
+              src="icons/FDU.png"
+              alt=""
+              width="320"
+              height="320"
+              decoding="async"
+              class="pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
+              aria-hidden="true"
+            />
+            <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              <div class="flex flex-wrap items-baseline gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-100 text-lg dark:bg-brand-500/20" aria-hidden="true">🏆</span>
+                <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">竞赛获奖经历</h2>
+              </div>
+              <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
+                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>数模国赛<span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">永远在参与</span></span>
+                </li>
+                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>电赛、ACM、RM <span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">有空一定了解</span></span>
+                </li>
+              </ul>
             </div>
-            <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
-              <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
-                <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-amber-500" aria-hidden="true"></span>
-                <span>数模国赛<span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">永远在参与</span></span>
-              </li>
-              <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
-                <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-amber-500" aria-hidden="true"></span>
-                <span>电赛、ACM、RM <span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">有空一定了解</span></span>
-              </li>
-            </ul>
           </div>
         </article>
 
         <article
           id="internship"
-          class="card-slide flex min-h-0 flex-none shrink-0 flex-col items-center justify-center"
+          class="card-slide flex h-full min-h-0 flex-none shrink-0 flex-col"
           aria-roledescription="slide"
           aria-label="实习经验"
         >
-          <div class="card-shell h-[60vh] w-full max-w-full shrink-0 overflow-y-auto overflow-x-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8 dark:border-slate-700 dark:bg-slate-800/80 dark:shadow-card-dark">
-            <div class="flex flex-wrap items-baseline gap-3">
-              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-lg dark:bg-emerald-500/20" aria-hidden="true">🍳</span>
-              <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">实习经验</h2>
+          <div class="card-shell relative flex h-full min-h-0 w-full max-w-full flex-col overflow-hidden rounded-2xl border border-slate-200/60 bg-mist-white/90 shadow-card backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-900/60 dark:shadow-card-dark">
+            <img
+              src="icons/FDU.png"
+              alt=""
+              width="320"
+              height="320"
+              decoding="async"
+              class="pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
+              aria-hidden="true"
+            />
+            <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              <div class="flex flex-wrap items-baseline gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-100 text-lg dark:bg-brand-500/20" aria-hidden="true">🍳</span>
+                <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">实习经验</h2>
+              </div>
+              <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
+                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span><span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">家里厨房</span>暑期优秀实习生</span>
+                </li>
+                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>深度参与<span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">撸猫遛狗</span>项目，实习认证时长 100h+</span>
+                </li>
+              </ul>
             </div>
-            <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
-              <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
-                <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-emerald-500" aria-hidden="true"></span>
-                <span><span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">家里厨房</span>暑期优秀实习生</span>
-              </li>
-              <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
-                <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-emerald-500" aria-hidden="true"></span>
-                <span>深度参与<span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">撸猫遛狗</span>项目，实习认证时长 100h+</span>
-              </li>
-            </ul>
           </div>
         </article>
 
         <article
           id="social"
-          class="card-slide flex min-h-0 flex-none shrink-0 flex-col items-center justify-center"
+          class="card-slide flex h-full min-h-0 flex-none shrink-0 flex-col"
           aria-roledescription="slide"
           aria-label="社会实践"
         >
-          <div class="card-shell h-[60vh] w-full max-w-full shrink-0 overflow-y-auto overflow-x-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-card sm:p-8 dark:border-slate-700 dark:bg-slate-800/80 dark:shadow-card-dark">
-            <div class="flex flex-wrap items-baseline gap-3">
-              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-100 text-lg dark:bg-sky-500/20" aria-hidden="true">🌟</span>
-              <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">社会实践</h2>
+          <div class="card-shell relative flex h-full min-h-0 w-full max-w-full flex-col overflow-hidden rounded-2xl border border-slate-200/60 bg-mist-white/90 shadow-card backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-900/60 dark:shadow-card-dark">
+            <img
+              src="icons/FDU.png"
+              alt=""
+              width="320"
+              height="320"
+              decoding="async"
+              class="pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
+              aria-hidden="true"
+            />
+            <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              <div class="flex flex-wrap items-baseline gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-100 text-lg dark:bg-brand-500/20" aria-hidden="true">🌟</span>
+                <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">社会实践</h2>
+              </div>
+              <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
+                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>2008 年感动中国人物得主</span>
+                </li>
+                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden="true"></span>
+                  <span>被窝测评大师</span>
+                </li>
+              </ul>
             </div>
-            <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
-              <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
-                <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-sky-500" aria-hidden="true"></span>
-                <span>2008 年感动中国人物得主</span>
-              </li>
-              <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-900/50">
-                <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-sky-500" aria-hidden="true"></span>
-                <span>被窝测评大师</span>
-              </li>
-            </ul>
           </div>
         </article>
       </div>
@@ -253,38 +442,50 @@
     >
       <div class="mx-auto flex w-full max-w-5xl justify-center overflow-visible py-1">
         <div class="inline-flex max-w-full min-w-0 flex-nowrap items-center justify-start gap-2 overflow-x-auto overscroll-x-contain px-3 py-2.5 [-webkit-overflow-scrolling:touch] sm:gap-3 sm:px-4 sm:py-3">
-        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-start gap-0 overflow-hidden rounded-full border border-slate-200/80 bg-white p-0 text-slate-700 shadow-card transition-all duration-300 ease-out hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-transparent motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-200 dark:shadow-card-dark dark:hover:bg-brand-500/15 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="home" aria-label="首页">
+        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-start gap-0 overflow-hidden rounded-full border border-slate-200/60 bg-mist-white/90 p-0 text-slate-700 shadow-card backdrop-blur-sm transition-all duration-300 ease-out hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-transparent motion-reduce:transition-none dark:border-slate-700/60 dark:bg-slate-800/90 dark:text-slate-200 dark:shadow-card-dark dark:hover:bg-brand-500/15 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="home" aria-label="首页">
           <span class="nav-dot__icon flex h-12 w-12 shrink-0 items-center justify-center" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 shrink-0" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
             </svg>
           </span>
           <span class="nav-dot__label max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold opacity-0 transition-[max-width,opacity] duration-300 ease-out motion-reduce:transition-none">主页</span>
         </button>
-        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-start gap-0 overflow-hidden rounded-full border border-slate-200/80 bg-white p-0 text-slate-700 shadow-card transition-all duration-300 ease-out hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-transparent motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-200 dark:shadow-card-dark dark:hover:bg-brand-500/15 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="research" aria-label="科研经历">
+        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-start gap-0 overflow-hidden rounded-full border border-slate-200/60 bg-mist-white/90 p-0 text-slate-700 shadow-card backdrop-blur-sm transition-all duration-300 ease-out hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-transparent motion-reduce:transition-none dark:border-slate-700/60 dark:bg-slate-800/90 dark:text-slate-200 dark:shadow-card-dark dark:hover:bg-brand-500/15 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="skills" aria-label="技能与兴趣">
           <span class="nav-dot__icon flex h-12 w-12 shrink-0 items-center justify-center" aria-hidden="true">
-            <img src="icons/显微镜.svg" alt="" width="24" height="24" decoding="async" class="h-6 w-6 object-contain" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 shrink-0" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+            </svg>
+          </span>
+          <span class="nav-dot__label max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold opacity-0 transition-[max-width,opacity] duration-300 ease-out motion-reduce:transition-none">技能</span>
+        </button>
+        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-start gap-0 overflow-hidden rounded-full border border-slate-200/60 bg-mist-white/90 p-0 text-slate-700 shadow-card backdrop-blur-sm transition-all duration-300 ease-out hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-transparent motion-reduce:transition-none dark:border-slate-700/60 dark:bg-slate-800/90 dark:text-slate-200 dark:shadow-card-dark dark:hover:bg-brand-500/15 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="research" aria-label="科研经历">
+          <span class="nav-dot__icon flex h-12 w-12 shrink-0 items-center justify-center" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" class="size-6 shrink-0" fill="currentColor" aria-hidden="true"><path d="M694.268995 318.427631l60.551002-119.358033a31.015489 31.015489 0 0 0-13.647775-41.719312l-7.927869-4.023933 32.375466-63.774949a31.039488 31.039488 0 0 0-13.615775-41.719312L664.517486 3.368824a31.231485 31.231485 0 0 0-23.711609-1.847969 31.143487 31.143487 0 0 0-18.039703 15.463745L590.350708 80.815548l-14.703757-7.463877a30.887491 30.887491 0 0 0-23.67961-1.82397 30.895491 30.895491 0 0 0-18.023703 15.463745l-152.701483 300.955039a31.039488 31.039488 0 0 0 13.639776 41.719312l165.541271 83.966616a31.023489 31.023489 0 0 0 41.727312-13.647775l63.790948-125.733927c80.69467 53.639116 122.405982 151.765498 102.470311 248.587902-26.71956 129.901859-154.133459 213.748476-284.075317 187.124915-101.190332-20.831657-177.605072-105.350263-190.172865-206.076603l186.052933 98.966369a31.015489 31.015489 0 0 0 41.991308-12.831789 31.039488 31.039488 0 0 0-12.823789-41.991307L234.17258 501.656611a30.983489 30.983489 0 0 0-41.999308 12.831788 31.055488 31.055488 0 0 0 12.823789 41.983308l26.215568 13.94377a30.511497 30.511497 0 0 0-1.015984 7.831871c1.327978 109.014203 62.350972 207.196584 153.829465 259.355725l-41.663314 146.901578a31.015489 31.015489 0 0 0 5.095916 27.167552 30.983489 30.983489 0 0 0 24.775592 12.343797H709.676741a31.071488 31.071488 0 0 0 24.775592-12.311797c5.847904-7.767872 7.759872-17.831706 5.095916-27.191552l-43.391285-153.101476c-0.199997-0.719988-0.551991-1.343978-0.807986-2.031967 66.630902-42.4873 116.750075-110.718175 133.885793-194.004802 25.591578-124.261952-29.391515-250.427872-134.965776-316.946775zM664.069493 72.80768l32.14347 16.311731-16.519727 32.535464-32.14347-16.319731 16.519727-32.527464zM560.823195 444.225557l-110.142184-55.879079 124.581946-245.547952 110.166184 55.887079-124.605946 245.539952z m107.758224 517.671467H413.321627l28.111536-99.142366c9.919836 3.167948 20.04767 5.887903 30.415499 8.023868 20.471663 4.207931 40.871326 6.239897 61.038994 6.239897a300.747042 300.747042 0 0 0 106.15025-19.471679l29.543513 104.35028z"/></svg>
           </span>
           <span class="nav-dot__label max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold opacity-0 transition-[max-width,opacity] duration-300 ease-out motion-reduce:transition-none">科研经历</span>
         </button>
-        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-start gap-0 overflow-hidden rounded-full border border-slate-200/80 bg-white p-0 text-slate-700 shadow-card transition-all duration-300 ease-out hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-transparent motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-200 dark:shadow-card-dark dark:hover:bg-brand-500/15 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="competition" aria-label="竞赛获奖">
+        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-start gap-0 overflow-hidden rounded-full border border-slate-200/60 bg-mist-white/90 p-0 text-slate-700 shadow-card backdrop-blur-sm transition-all duration-300 ease-out hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-transparent motion-reduce:transition-none dark:border-slate-700/60 dark:bg-slate-800/90 dark:text-slate-200 dark:shadow-card-dark dark:hover:bg-brand-500/15 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="competition" aria-label="竞赛获奖">
           <span class="nav-dot__icon flex h-12 w-12 shrink-0 items-center justify-center" aria-hidden="true">
-            <img src="icons/奖杯.svg" alt="" width="24" height="24" decoding="async" class="h-6 w-6 object-contain" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" class="size-6 shrink-0" fill="currentColor" aria-hidden="true"><path d="M975.7 188.4H868.9v-68c0-26.7-21.7-48.3-48.3-48.3H203.4c-26.7 0-48.3 21.7-48.3 48.3v68H48.3C21.7 188.4 0 210.1 0 236.8V328c0 48.4 17.9 94.6 50.5 130.2 33.4 36.5 78.3 57.3 126.4 58.8 1.9 0.1 3.7 0.1 5.6 0.1 5.2 0 10.5-0.2 15.7-0.7 14.7 27.7 32.9 53.6 54.4 77.1 47.7 52.1 107.8 88 173.8 104.6V893c0 1.3 0.1 2.6 0.3 3.9h-89.1c-15.2 0-27.5 12.3-27.5 27.5s12.3 27.5 27.5 27.5h348.9c15.2 0 27.5-12.3 27.5-27.5s-12.3-27.5-27.5-27.5h-89.1c0.2-1.3 0.3-2.5 0.3-3.9V698.4c14.1-3.5 28.1-7.8 41.8-13.1 44.4-17 84.4-42.3 118.9-75.2 28.7-27.3 52.2-58.7 70.3-93.5 2.4 0.2 4.8 0.3 7.3 0.4 1.9 0.1 3.8 0.1 5.7 0.1 47.7 0 92.6-18.2 127-51.5 35.8-34.7 55.4-81.2 55.4-131.1v-97.7c-0.1-26.7-21.8-48.4-48.4-48.4zM54.9 328v-84.7H155v99c0 41.1 6.7 81.5 19.6 119.6-66.3-4.1-119.7-63.3-119.7-133.9zM543 897h-62c0.2-1.3 0.3-2.5 0.3-3.9V707.4c4.5 0.4 9 0.7 13.5 0.9 5.8 0.3 11.6 0.4 17.4 0.4 10.2 0 20.4-0.4 30.5-1.3V893c0 1.4 0.1 2.7 0.3 4z m177.4-326.6c-29.2 27.9-63.1 49.3-100.6 63.6-16.9 6.5-34.2 11.3-51.8 14.6-1.8 0.1-3.5 0.4-5.2 0.9-21.4 3.6-43.3 5-65.5 3.9-12.5-0.6-24.8-2-37-4.1-0.9-0.2-1.9-0.4-2.9-0.5-62.5-11.7-119.8-43.6-164.4-92.3-53.5-58.5-83-134.6-83-214.2V127h604v224.6c0 42.1-8.5 82.8-25.2 121-16.1 37-39.1 69.8-68.4 97.8z m248.7-235.9c0 34.8-13.8 67.4-38.8 91.7-21.6 20.9-49.1 33.3-78.6 35.6 11.5-35.4 17.3-72.3 17.3-110.2V243.4h100.1v91.1z"/></svg>
           </span>
           <span class="nav-dot__label max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold opacity-0 transition-[max-width,opacity] duration-300 ease-out motion-reduce:transition-none">竞赛获奖</span>
         </button>
-        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-start gap-0 overflow-hidden rounded-full border border-slate-200/80 bg-white p-0 text-slate-700 shadow-card transition-all duration-300 ease-out hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-transparent motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-200 dark:shadow-card-dark dark:hover:bg-brand-500/15 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="internship" aria-label="实习经验">
-          <span class="nav-dot__icon flex h-12 w-12 shrink-0 items-center justify-center text-lg leading-none" aria-hidden="true">🍳</span>
+        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-start gap-0 overflow-hidden rounded-full border border-slate-200/60 bg-mist-white/90 p-0 text-slate-700 shadow-card backdrop-blur-sm transition-all duration-300 ease-out hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-transparent motion-reduce:transition-none dark:border-slate-700/60 dark:bg-slate-800/90 dark:text-slate-200 dark:shadow-card-dark dark:hover:bg-brand-500/15 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="internship" aria-label="实习经验">
+          <span class="nav-dot__icon flex h-12 w-12 shrink-0 items-center justify-center" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" class="size-6 shrink-0" fill="currentColor" aria-hidden="true"><path d="M97.900291 1023.99928c-25.899982 0.1-50.699964-10.199993-68.899951-28.59998-37.999973-38.199973-37.999973-99.89993 0-138.099903l144.799898-145.099898 78.499945-78.699944c-24.199983-39.599972-41.499971-82.899942-51.299964-128.19991-19.599986-90.299937-8.999994-184.49987 30.399978-267.999812 98.99993-207.499854 347.499756-295.399792 554.99961-196.399862s295.399792 347.499756 196.399862 554.99961c-20.399986 42.69997-47.899966 81.599943-81.299943 114.999919-77.799945 78.399945-183.699871 122.399914-294.199793 122.099914-38.399973 0-76.599946-5.199996-113.49992-15.599989-36.499974-10.299993-71.39995-25.599982-103.699927-45.499968l-78.499945 78.599945-144.699898 144.899898c-18.299987 18.399987-43.09997 28.69998-68.999952 28.59998z m98.599931-243.799829L74.300308 902.699365c-12.999991 13.099991-12.999991 34.199976 0 47.299967 12.999991 12.999991 34.099976 13.099991 47.199967 0.1l0.099999-0.1 122.199915-122.399914-47.299967-47.399967z m93.999934-94.099933l-48.599966 48.699965 47.199967 47.299967 48.599966-48.699966c-4.099997-3.499998-7.999994-6.999995-11.899992-10.499992l-1.599999-1.499999c-4.299997-4.099997-7.899994-7.399995-11.099992-10.699993-3.299998-3.299998-6.499995-6.599995-10.499993-10.899992-0.6-0.7-1.199999-1.299999-1.799999-1.999999l-0.099999-0.1c-3.699997-3.999997-6.999995-7.799995-10.199993-11.499991v-0.1zM607.299933 63.399955c-194.799863 0.6-352.299752 158.999888-351.799753 353.899752 0.2 72.799949 22.899984 143.799899 65.099955 203.099857 5.299996 7.499995 10.999992 14.79999 16.799988 21.799984l1.199999 1.399999c2.799998 3.399998 5.799996 6.799995 8.899994 10.099993 0.4 0.4 0.799999 0.899999 1.199999 1.299999l0.3 0.3c3.499998 3.799997 6.599995 6.999995 9.499993 9.899993 3.199998 3.199998 6.499995 6.299996 10.199993 9.799993l1.099999 1.1c3.599997 3.299998 7.199995 6.499995 10.699992 9.499993l0.4 0.3c7.599995 6.399996 15.599989 12.599991 23.699984 18.299987 0.1 0.1 0.3 0.2 0.399999 0.3l0.3 0.2c159.299888 111.599922 378.799734 72.899949 490.399655-86.39994 41.499971-59.299958 63.799955-129.999909 63.699955-202.399857 0.5-194.199863-156.59989-351.999753-350.799753-352.499753h-1.299999z m0 628.199559c-151.999893 0-275.299806-123.299913-275.299806-275.399807v-4.999996c0.3-17.499988 14.49999-31.499978 31.999977-31.599978h0.6c17.699988 0.3 31.799978 14.999989 31.499977 32.699977-1.399999 116.499918 91.799935 212.099851 208.299854 213.49985 116.499918 1.399999 212.099851-91.799935 213.49985-208.299854 1.099999-86.199939-50.399965-164.399884-130.099909-197.399861-25.399982-10.499993-52.599963-15.999989-80.099943-15.899989-16.299989 0-32.599977 1.899999-48.499966 5.599996-11.599992 2.699998-22.899984 6.399996-33.899976 10.999993-16.399988 6.899995-35.199975-0.899999-41.999971-17.199988-6.899995-16.399988 0.899999-35.199975 17.199988-41.999971 14.29999-5.999996 29.09998-10.799992 44.199969-14.29999 20.699985-4.799997 41.799971-7.299995 63.099956-7.299994 35.799975 0 71.29995 6.999995 104.399926 20.799985 140.899901 57.999959 208.099854 219.199846 150.099895 359.999747-42.39997 103.299927-143.199899 170.79988-254.999821 170.79988z m-171.999879-415.899708c-8.499994 0-16.699988-3.399998-22.699984-9.399993-12.499991-12.599991-12.499991-32.899977 0-45.399968s32.799977-12.499991 45.299968 0c12.499991 12.599991 12.499991 32.899977 0 45.399968-5.899996 5.999996-13.99999 9.399993-22.599984 9.399993z"/></svg>
+          </span>
           <span class="nav-dot__label max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold opacity-0 transition-[max-width,opacity] duration-300 ease-out motion-reduce:transition-none">实习经验</span>
         </button>
-        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-start gap-0 overflow-hidden rounded-full border border-slate-200/80 bg-white p-0 text-slate-700 shadow-card transition-all duration-300 ease-out hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-transparent motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-200 dark:shadow-card-dark dark:hover:bg-brand-500/15 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="social" aria-label="社会实践">
-          <span class="nav-dot__icon flex h-12 w-12 shrink-0 items-center justify-center text-lg leading-none" aria-hidden="true">🌟</span>
+        <button type="button" class="nav-dot flex h-12 w-12 shrink-0 items-center justify-start gap-0 overflow-hidden rounded-full border border-slate-200/60 bg-mist-white/90 p-0 text-slate-700 shadow-card backdrop-blur-sm transition-all duration-300 ease-out hover:bg-brand-50 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-transparent motion-reduce:transition-none dark:border-slate-700/60 dark:bg-slate-800/90 dark:text-slate-200 dark:shadow-card-dark dark:hover:bg-brand-500/15 dark:hover:text-brand-200 dark:focus:ring-offset-slate-900" data-slide-to="social" aria-label="社会实践">
+          <span class="nav-dot__icon flex h-12 w-12 shrink-0 items-center justify-center" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" class="size-6 shrink-0" fill="currentColor" aria-hidden="true"><path d="M301.176471 963.764706H180.705882c-66.258824 0-120.470588-54.211765-120.470588-120.470588V120.470588C60.235294 54.211765 114.447059 0 180.705882 0h602.352942c66.258824 0 120.470588 54.211765 120.470588 120.470588v271.058824c0 18.070588-12.047059 30.117647-30.117647 30.117647s-30.117647-12.047059-30.117647-30.117647V120.470588c0-36.141176-24.094118-60.235294-60.235294-60.235294H180.705882c-36.141176 0-60.235294 24.094118-60.235294 60.235294v722.82353c0 36.141176 24.094118 60.235294 60.235294 60.235294h150.588236c18.070588 0 30.117647 12.047059 30.117647 30.117647s-12.047059 30.117647-30.117647 30.117647H301.176471zM271.058824 240.941176h421.647058c18.070588 0 30.117647 12.047059 30.117647 30.117648s-12.047059 30.117647-30.117647 30.117647h-421.647058c-18.070588 0-30.117647-12.047059-30.117648-30.117647s12.047059-30.117647 30.117648-30.117648z m0 180.705883h301.17647c18.070588 0 30.117647 12.047059 30.117647 30.117647s-12.047059 30.117647-30.117647 30.117647h-301.17647c-18.070588 0-30.117647-12.047059-30.117648-30.117647s12.047059-30.117647 30.117648-30.117647z m0 180.705882h180.705882c18.070588 0 30.117647 12.047059 30.117647 30.117647s-12.047059 30.117647-30.117647 30.117647h-180.705882c-18.070588 0-30.117647-12.047059-30.117648-30.117647s12.047059-30.117647 30.117648-30.117647z m325.270588 295.152941l289.129412-289.129411-42.164706-42.164706-289.129412 289.129411-6.02353 48.188236 48.188236-6.02353z m289.129412-373.458823l42.164705 42.164706c24.094118 24.094118 24.094118 60.235294 0 84.329411l-289.129411 289.129412c-12.047059 12.047059-24.094118 18.070588-36.141177 18.070588l-84.329412 6.02353c-18.070588 0-30.117647-12.047059-30.117647-24.094118v-6.023529l6.02353-84.329412c0-12.047059 6.023529-24.094118 18.070588-36.141176l289.129412-289.129412c24.094118-24.094118 60.235294-24.094118 84.329412 0z"/></svg>
+          </span>
           <span class="nav-dot__label max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold opacity-0 transition-[max-width,opacity] duration-300 ease-out motion-reduce:transition-none">社会实践</span>
         </button>
         </div>
       </div>
     </nav>
-    <footer class="border-t border-slate-200/40 py-3 text-center text-xs text-slate-500 dark:border-slate-600/40 dark:text-slate-400">
+    <footer class="border-t border-slate-200/60 py-3 text-center text-xs text-slate-500 dark:border-slate-600/60 dark:text-slate-400">
       <p class="m-0">© <span id="year"></span> 腾小飞 · 复旦大学腾飞书院</p>
       <p class="mt-1 mb-0 text-[11px] text-slate-400 dark:text-slate-500">本页为 github.io 静态部署教程示例 · 左右滑动或方向键切换</p>
     </footer>

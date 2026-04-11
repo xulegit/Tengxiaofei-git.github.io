@@ -1,13 +1,4 @@
-:root {
-  --bg: #f5f7fb;
-  --surface: #ffffff;
-  --text: #1f2a37;
-  --muted: #5b6472;
-  --primary: #3b82f6;
-  --primary-hover: #2563eb;
-  --border: #d7deea;
-  --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-}
+/* 配色变量见 theme.css */
 
 * {
   box-sizing: border-box;
@@ -43,7 +34,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(245, 247, 251, 0.92);
+  background: var(--site-header-bg);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
@@ -133,7 +124,7 @@ a:hover {
 .btn {
   display: inline-block;
   background: var(--primary);
-  color: #fff;
+  color: var(--on-primary);
   border: none;
   border-radius: 10px;
   padding: 0.55rem 0.95rem;
@@ -153,7 +144,7 @@ a:hover {
 }
 
 .btn-outline:hover {
-  background: #eaf1ff;
+  background: var(--outline-hover-bg);
 }
 
 .section {
@@ -199,17 +190,6 @@ a:hover {
   padding: 1rem 0 1.6rem;
 }
 
-body.dark {
-  --bg: #0f172a;
-  --surface: #111c34;
-  --text: #e2e8f0;
-  --muted: #a9b3c4;
-  --primary: #60a5fa;
-  --primary-hover: #3b82f6;
-  --border: #25314d;
-  --shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
-}
-
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
@@ -228,4 +208,20 @@ body.dark {
   .grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* 底部轮播导航激活态（色值 theme.css） */
+button.nav-dot.active {
+  background: linear-gradient(135deg, var(--nav-dot-active-from), var(--nav-dot-active-to)) !important;
+  border-color: transparent !important;
+  color: var(--on-primary) !important;
+  box-shadow: var(--nav-dot-active-shadow) !important;
+}
+
+html.dark button.nav-dot.active {
+  box-shadow: var(--nav-dot-active-shadow-dark) !important;
+}
+
+button.nav-dot.active .nav-dot__label {
+  color: var(--on-primary) !important;
 }
