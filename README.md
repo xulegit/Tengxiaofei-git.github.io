@@ -20,8 +20,7 @@
 </p>
 
 > 💡 **Tip**  
-> 日常只需要改 **`config.js`** 里的 `CONFIG`；`index.html` / `script.js` 一般不必动。设计思路见仓库内 `plan.md` 与 `.cursor/skills/beginner-friendly-static-template/SKILL.md`。
-
+> 日常只需要改 **`config.js`** 里的 `CONFIG`；`index.html` / `script.js` 一般不必动。
 ---
 
 ## ✨ Preview
