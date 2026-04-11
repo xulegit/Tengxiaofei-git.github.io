@@ -51,7 +51,7 @@
 
   <header class="z-30 shrink-0 border-b border-slate-200/60 bg-mist-white/85 backdrop-blur-md dark:border-slate-700/60 dark:bg-slate-900/80">
     <div class="mx-auto flex w-full max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
-      <p class="m-0 text-lg font-bold tracking-tight text-slate-900 dark:text-white">腾小飞</p>
+      <p id="cfg-site-header-name" class="m-0 text-lg font-bold tracking-tight text-slate-900 dark:text-white">腾小飞</p>
       <button id="theme-toggle" type="button" class="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-slate-200/60 bg-mist-white/90 px-3 py-1.5 text-sm font-medium text-slate-700 shadow-sm hover:border-brand-400 hover:bg-brand-100/90 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-brand-500 dark:hover:bg-slate-700" aria-label="切换深色或浅色主题" aria-pressed="false">
         <span class="hidden sm:inline" data-theme-label>浅色</span>
         <span aria-hidden="true" class="text-base">◐</span>
@@ -85,17 +85,17 @@
               width="320"
               height="320"
               decoding="async"
-              class="pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
+              class="cfg-watermark pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
               aria-hidden="true"
             />
             <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
               <div class="space-y-5">
                 <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl">
-                  你好，我是<span class="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 bg-clip-text text-transparent dark:from-brand-300 dark:via-brand-400 dark:to-brand-500">腾小飞</span>
+                  <span id="cfg-greeting-lead">你好，我是</span><span class="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 bg-clip-text text-transparent dark:from-brand-300 dark:via-brand-400 dark:to-brand-500"><span id="cfg-display-name">腾小飞</span></span>
                 </h1>
                 <p class="inline-flex max-w-xl flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-400 sm:text-base">
-                  <span class="sr-only">Location at</span>
+                  <span class="sr-only">所在位置</span>
                   <span class="inline-flex shrink-0 text-slate-500 dark:text-slate-400" aria-hidden="true">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -103,36 +103,36 @@
                     </svg>
                   </span>
                   <span>
-                    <span class="font-medium text-slate-800 dark:text-slate-200">复旦大学腾飞书院</span>
+                    <span id="cfg-location" class="font-medium text-slate-800 dark:text-slate-200">复旦大学腾飞书院</span>
                   </span>
                 </p>
-                <p class="max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg">
-                  工科学生一枚；本页是 <span class="font-medium text-slate-800 dark:text-slate-200">GitHub Pages 静态个人名片</span> 的示例，展示简介与经历片段。
-                </p>
-                <blockquote class="border-l-4 border-brand-500 pl-4 text-base italic text-slate-700 dark:border-brand-400 dark:text-slate-200">
+                <p id="cfg-intro" class="max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg"></p>
+                <blockquote id="cfg-quote" class="border-l-4 border-brand-500 pl-4 text-base italic text-slate-700 dark:border-brand-400 dark:text-slate-200">
                   「永远在腾飞路上！」
                 </blockquote>
                 <div class="flex flex-wrap gap-3 pt-2">
                   <button
+                    id="cfg-primary-cta"
                     type="button"
                     class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-brand-600/25 transition hover:from-brand-700 hover:to-brand-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:from-[var(--nav-dot-active-from)] dark:to-[var(--nav-dot-active-to)] dark:shadow-[0_4px_14px_rgb(129_140_248_/_0.35)] dark:hover:from-[var(--primary-hover)] dark:hover:to-[var(--primary)] dark:hover:shadow-[0_6px_24px_rgb(129_140_248_/_0.42)] dark:focus:ring-indigo-400 dark:focus:ring-offset-slate-900"
                     data-slide-to="research"
                   >
                     浏览经历
                   </button>
-                  <a class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200/60 bg-mist-white/90 px-5 py-2.5 text-sm font-semibold text-slate-800 no-underline shadow-sm backdrop-blur-sm transition hover:border-brand-400 hover:bg-brand-100/80 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:border-slate-600 dark:bg-slate-800/80 dark:text-slate-100 dark:hover:border-brand-500 dark:hover:bg-slate-700/90 dark:focus:ring-offset-slate-900" href="https://github.com/Tengxiaofei-git/Tengxiaofei-git.github.io" target="_blank" rel="noopener noreferrer">
+                  <a id="cfg-repo-link" class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200/60 bg-mist-white/90 px-5 py-2.5 text-sm font-semibold text-slate-800 no-underline shadow-sm backdrop-blur-sm transition hover:border-brand-400 hover:bg-brand-100/80 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:border-slate-600 dark:bg-slate-800/80 dark:text-slate-100 dark:hover:border-brand-500 dark:hover:bg-slate-700/90 dark:focus:ring-offset-slate-900" href="https://github.com/Tengxiaofei-git/Tengxiaofei-git.github.io" target="_blank" rel="noopener noreferrer">
                     <span class="inline-flex shrink-0 text-slate-800 dark:text-slate-100" aria-hidden="true">
                       <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4">
                         <path d="M7.999933333333333 0.35346666666666665c-1.8616000000000001 0.00006666666666666667 -3.662466666666666 0.6626 -5.080266666666667 1.8689333333333331C1.5017999999999998 3.4287333333333327 0.5594666666666666 5.100266666666666 0.26126666666666665 6.937866666666666c-0.29819999999999997 1.8375333333333332 0.0672 3.7212666666666667 1.0308 5.3141333333333325 0.9635333333333334 1.5927333333333333 2.462466666666667 2.790733333333333 4.228533333333333 3.3795333333333333 0.39199999999999996 0.0686 0.5389999999999999 -0.1666 0.5389999999999999 -0.37239999999999995 0 -0.18619999999999998 -0.0098 -0.8036 -0.0098 -1.4602 -1.9697999999999998 0.36260000000000003 -2.4794 -0.4801333333333333 -2.6361999999999997 -0.9211333333333332 -0.174 -0.4288666666666666 -0.4498 -0.8089333333333333 -0.8036 -1.1074 -0.2744 -0.147 -0.6664 -0.5095999999999999 -0.0098 -0.5194 0.2507333333333333 0.027200000000000002 0.4911333333333333 0.11446666666666666 0.7010000000000001 0.2543333333333333 0.2098 0.13986666666666664 0.3828666666666667 0.3283333333333333 0.5044 0.5492666666666666 0.10719999999999999 0.1926 0.25139999999999996 0.36219999999999997 0.4242666666666666 0.499 0.17286666666666664 0.13679999999999998 0.37106666666666666 0.2382 0.5831999999999999 0.29819999999999997 0.2121333333333333 0.060066666666666664 0.434 0.07773333333333332 0.6529333333333334 0.05193333333333333s0.43066666666666664 -0.09453333333333333 0.6229333333333333 -0.2023333333333333c0.03393333333333333 -0.39859999999999995 0.2116 -0.7712666666666667 0.4998666666666667 -1.0486 -1.7444 -0.19599999999999998 -3.5671999999999997 -0.8722 -3.5671999999999997 -3.8709999999999996 -0.011 -0.7791333333333333 0.27646666666666664 -1.533 0.8036 -2.106933333333333 -0.23966666666666664 -0.6772 -0.21166666666666667 -1.4203999999999999 0.0784 -2.0776 0 0 0.6565333333333333 -0.20579999999999998 2.1559999999999997 0.8036 1.2828 -0.3528 2.6370666666666667 -0.3528 3.9199333333333333 0 1.4993999999999998 -1.0191999999999999 2.1559999999999997 -0.8036 2.1559999999999997 -0.8036 0.29006666666666664 0.6572 0.3181333333333333 1.4003999999999999 0.0784 2.0776 0.5286 0.5729333333333333 0.8164666666666666 1.3275333333333332 0.8036 2.106933333333333 0 3.0086 -1.8325999999999998 3.675 -3.577 3.8709999999999996 0.18706666666666666 0.1896 0.3311333333333333 0.41733333333333333 0.42246666666666666 0.6675333333333333 0.09133333333333334 0.2503333333333333 0.1277333333333333 0.5173333333333333 0.10673333333333332 0.7828666666666666 0 1.0486666666666666 -0.0098 1.8913333333333333 -0.0098 2.1559333333333335 0 0.20579999999999998 0.147 0.4508 0.5389999999999999 0.37239999999999995 1.7629333333333332 -0.5935333333333332 3.2575333333333334 -1.7943333333333333 4.217 -3.3879333333333332 0.9595333333333333 -1.5936666666666666 1.3214 -3.476466666666666 1.0211333333333332 -5.312266666666666 -0.3002666666666667 -1.8357333333333332 -1.2431333333333332 -3.5050666666666666 -2.6604 -4.709933333333333C11.659466666666667 1.0164666666666666 9.860133333333334 0.3544666666666666 7.999933333333333 0.35346666666666665Z" />
                       </svg>
                     </span>
-                    GitHub 仓库
+                    <span id="cfg-repo-label">GitHub 仓库</span>
                   </a>
                 </div>
               </div>
               <div class="flex w-full flex-col items-center gap-5">
                 <div class="h-28 w-28 shrink-0 overflow-hidden rounded-full border-4 border-white bg-white shadow-md ring-2 ring-brand-300/90 dark:border-slate-600 dark:bg-slate-800 dark:ring-brand-500/35 sm:h-32 sm:w-32">
                   <img
+                    id="cfg-avatar"
                     src="icons/秘书处_线条.png"
                     alt="腾小飞"
                     width="128"
@@ -142,29 +142,8 @@
                   />
                 </div>
                 <aside class="w-full rounded-2xl border border-slate-200/60 bg-slate-50/80 p-4 text-xs leading-snug backdrop-blur-sm dark:border-slate-600/60 dark:bg-slate-900/50" aria-label="快速信息">
-                <h2 class="mt-0 text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">About Me</h2>
-                <dl class="mt-3 space-y-3">
-                  <div>
-                    <dt class="text-[10px] font-medium text-slate-500 dark:text-slate-400">年龄</dt>
-                    <dd class="mt-0.5 text-xs text-slate-800 dark:text-slate-200">永远的 18 岁</dd>
-                  </div>
-                  <div>
-                    <dt class="text-[10px] font-medium text-slate-500 dark:text-slate-400">爱好</dt>
-                    <dd class="mt-0.5 text-xs text-slate-800 dark:text-slate-200">探索世界</dd>
-                  </div>
-                  <div>
-                    <dt class="text-[10px] font-medium text-slate-500 dark:text-slate-400">GitHub</dt>
-                    <dd class="mt-0.5 text-xs text-slate-800 dark:text-slate-200">
-                      <a class="font-medium text-slate-800 no-underline hover:underline dark:text-slate-200" href="https://github.com/Tengxiaofei-git" target="_blank" rel="noopener noreferrer">Tengxiaofei-git</a>
-                    </dd>
-                  </div>
-                  <div>
-                    <dt class="text-[10px] font-medium text-slate-500 dark:text-slate-400">联系方式</dt>
-                    <dd class="mt-0.5 text-xs text-slate-800 dark:text-slate-200">
-                      <a class="text-slate-700 no-underline hover:underline dark:text-slate-300" href="mailto:3871162801@qq.com">3871162801@qq.com</a>
-                    </dd>
-                  </div>
-                </dl>
+                <h2 id="cfg-about-title" class="mt-0 text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">About Me</h2>
+                <dl id="cfg-about-dl" class="mt-3 space-y-3"></dl>
                 </aside>
               </div>
             </div>
@@ -185,102 +164,15 @@
               width="320"
               height="320"
               decoding="async"
-              class="pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
+              class="cfg-watermark pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
               aria-hidden="true"
             />
             <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
               <div class="flex flex-wrap items-center gap-3">
-                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
-                <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">技能</h2>
+                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="cfg-section-icon h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
+                <h2 id="cfg-skills-title" class="m-0 text-2xl font-bold text-slate-900 dark:text-white">技能</h2>
               </div>
-              <div class="mt-4 grid min-h-0 grid-cols-3 gap-2 text-[11px] leading-snug text-slate-600 dark:text-slate-300 sm:gap-3 sm:text-xs">
-                <div class="min-w-0 space-y-4">
-                  <section>
-                    <h3 class="m-0 text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Language</h3>
-                    <ul class="mt-1.5 list-none space-y-1 p-0">
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>Chinese</span>
-                      </li>
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>English</span>
-                      </li>
-                    </ul>
-                  </section>
-                  <section>
-                    <h3 class="m-0 text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Interests</h3>
-                    <ul class="mt-1.5 list-none space-y-1 p-0">
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>Photography</span>
-                      </li>
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>Painting</span>
-                      </li>
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>Go-kart</span>
-                      </li>
-                    </ul>
-                  </section>
-                </div>
-                <div class="min-w-0">
-                  <section>
-                    <h3 class="m-0 text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Tech</h3>
-                    <ul class="mt-1.5 list-none space-y-1 p-0">
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>Python</span>
-                      </li>
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>C++</span>
-                      </li>
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>Unity</span>
-                      </li>
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>Godot</span>
-                      </li>
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>Matlab</span>
-                      </li>
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>SPSS</span>
-                      </li>
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>SQL</span>
-                      </li>
-                    </ul>
-                  </section>
-                </div>
-                <div class="min-w-0">
-                  <section>
-                    <h3 class="m-0 text-[10px] font-semibold uppercase leading-snug text-slate-500 dark:text-slate-400">Reading list（寻找书友中……）</h3>
-                    <ul class="mt-1.5 list-none space-y-1 p-0">
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>《人间词话》</span>
-                      </li>
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>《人间草木》</span>
-                      </li>
-                      <li class="flex gap-2 rounded-lg bg-slate-50/80 px-2.5 py-1.5 dark:bg-slate-900/50">
-                        <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                        <span>《百年孤独》</span>
-                      </li>
-                    </ul>
-                  </section>
-                </div>
-              </div>
+              <div id="cfg-skills-grid" class="mt-4 grid min-h-0 grid-cols-3 gap-2 text-[11px] leading-snug text-slate-600 dark:text-slate-300 sm:gap-3 sm:text-xs"></div>
             </div>
           </div>
         </article>
@@ -298,28 +190,15 @@
               width="320"
               height="320"
               decoding="async"
-              class="pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
+              class="cfg-watermark pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
               aria-hidden="true"
             />
             <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
               <div class="flex flex-wrap items-center gap-3">
-                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
-                <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">科研经历</h2>
+                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="cfg-section-icon h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
+                <h2 id="cfg-research-title" class="m-0 text-2xl font-bold text-slate-900 dark:text-white">科研经历</h2>
               </div>
-              <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
-                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                  <span>参与发表一篇 <strong class="font-semibold text-slate-800 dark:text-slate-100">WON</strong> 负一区文章</span>
-                </li>
-                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                  <span>一篇 <strong class="font-semibold text-slate-800 dark:text-slate-100">S.H.I.T</strong> 在投</span>
-                </li>
-                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                  <span><strong class="font-semibold text-slate-800 dark:text-slate-100">xxxx</strong> 实验室周公下棋全勤奖</span>
-                </li>
-              </ul>
+              <ul id="cfg-research-list" class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300"></ul>
             </div>
           </div>
         </article>
@@ -337,24 +216,15 @@
               width="320"
               height="320"
               decoding="async"
-              class="pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
+              class="cfg-watermark pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
               aria-hidden="true"
             />
             <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
               <div class="flex flex-wrap items-center gap-3">
-                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
-                <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">竞赛获奖经历</h2>
+                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="cfg-section-icon h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
+                <h2 id="cfg-competition-title" class="m-0 text-2xl font-bold text-slate-900 dark:text-white">竞赛获奖经历</h2>
               </div>
-              <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
-                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                  <span>数模国赛<span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">永远在参与</span></span>
-                </li>
-                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                  <span>电赛、ACM、RM <span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">有空一定了解</span></span>
-                </li>
-              </ul>
+              <ul id="cfg-competition-list" class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300"></ul>
             </div>
           </div>
         </article>
@@ -372,24 +242,15 @@
               width="320"
               height="320"
               decoding="async"
-              class="pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
+              class="cfg-watermark pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
               aria-hidden="true"
             />
             <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
               <div class="flex flex-wrap items-center gap-3">
-                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
-                <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">实习经验</h2>
+                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="cfg-section-icon h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
+                <h2 id="cfg-internship-title" class="m-0 text-2xl font-bold text-slate-900 dark:text-white">实习经验</h2>
               </div>
-              <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
-                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                  <span><span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">家里厨房</span>暑期优秀实习生</span>
-                </li>
-                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                  <span>深度参与<span class="underline decoration-slate-500 decoration-2 underline-offset-2 dark:decoration-slate-400">撸猫遛狗</span>项目，实习认证时长 100h+</span>
-                </li>
-              </ul>
+              <ul id="cfg-internship-list" class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300"></ul>
             </div>
           </div>
         </article>
@@ -407,24 +268,15 @@
               width="320"
               height="320"
               decoding="async"
-              class="pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
+              class="cfg-watermark pointer-events-none absolute -bottom-18 right-3 z-0 h-60 w-60 origin-bottom-right rotate-[15deg] object-contain opacity-[0.11] select-none sm:-bottom-12 sm:right-4 sm:h-[280px] sm:w-[280px] dark:opacity-[0.15]"
               aria-hidden="true"
             />
             <div class="relative z-[1] flex min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden p-6 sm:p-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
               <div class="flex flex-wrap items-center gap-3">
-                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
-                <h2 class="m-0 text-2xl font-bold text-slate-900 dark:text-white">社会实践</h2>
+                <img src="icons/标题.svg" alt="" width="32" height="32" decoding="async" class="cfg-section-icon h-7 w-7 shrink-0 object-contain dark:invert sm:h-8 sm:w-8" aria-hidden="true" />
+                <h2 id="cfg-social-title" class="m-0 text-2xl font-bold text-slate-900 dark:text-white">社会实践</h2>
               </div>
-              <ul class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300">
-                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                  <span>2008 年感动中国人物得主</span>
-                </li>
-                <li class="flex gap-3 rounded-xl bg-slate-50/80 px-4 py-3 dark:bg-slate-900/50">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--palette-doc-accent)]" aria-hidden="true"></span>
-                  <span>被窝测评大师</span>
-                </li>
-              </ul>
+              <ul id="cfg-social-list" class="mt-6 list-none space-y-3 p-0 text-slate-600 dark:text-slate-300"></ul>
             </div>
           </div>
         </article>
@@ -484,11 +336,12 @@
       </div>
     </nav>
     <footer class="border-t border-slate-200/60 py-3 text-center text-xs text-slate-500 dark:border-slate-600/60 dark:text-slate-400">
-      <p class="m-0">© <span id="year"></span> 腾小飞 · 复旦大学腾飞书院</p>
-      <p class="mt-1 mb-0 text-[11px] text-slate-400 dark:text-slate-500">本页为 github.io 静态部署教程示例 · 左右滑动或方向键切换</p>
+      <p class="m-0">© <span id="year"></span> <span id="cfg-footer-line1">腾小飞 · 复旦大学腾飞书院</span></p>
+      <p id="cfg-footer-note" class="mt-1 mb-0 text-[11px] text-slate-400 dark:text-slate-500">本页为 github.io 静态部署教程示例 · 左右滑动或方向键切换</p>
     </footer>
   </div>
 
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
