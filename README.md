@@ -1,7 +1,7 @@
-<h1 align="center">🪪 Zero-Code Personal Card</h1>
+<h1 align="center">🪪 Zero-Code Personal Card for 腾飞er</h1>
 
 <p align="center">
-  <b>真正给零基础用户用的 GitHub Pages 个人名片模板</b> — 不用 Node、不用打包，改一个 <code>config.js</code> 就像填表一样换完整站文案与链接。
+  <b>面向零基础学生的 GitHub Pages 个人名片模板</b> — 不用 Node、不用打包，改一个 <code>config.js</code> 就像填表一样换完整站文案与链接。
 </p>
 
 <p align="center">
@@ -168,6 +168,14 @@ skills: {
 - 内容请以 **`config.js`** 为准；历史需求表可仅放在本地（若存在 `goals.md`，默认不纳入版本库）。
 - `repo.md`：协作与 README 营销向笔记（若仓库提供）。
 - `plan.md`：中文产品化思路（若仓库提供，常被 `.gitignore` 排除）。  
+
+---
+
+## 🏫 项目来源说明
+
+本项目为复旦大学腾飞书院学生自我管理委员会《github月推》系列的实践示例。
+
+当前仓库为独立开源版本，不代表该组织的官方立场。
 
 ---
 
