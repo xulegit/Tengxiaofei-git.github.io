@@ -1,35 +1,61 @@
-# 零基础个人名片模板（GitHub Pages）
+<h1 align="center">🪪 Zero-Code Personal Card</h1>
 
-这是**单页静态网站**：不用安装 Node、不用打包，改一个配置文件就能换文案和链接。设计目标见仓库里的 `plan.md` 与 `.cursor/skills/beginner-friendly-static-template/SKILL.md`。
+<p align="center">
+  <b>真正给零基础用户用的 GitHub Pages 个人名片模板</b> — 不用 Node、不用打包，改一个 <code>config.js</code> 就像填表一样换完整站文案与链接。
+</p>
+
+<p align="center">
+  <a href="https://tengxiaofei-git.github.io/">🔗 Live Demo</a>
+  ·
+  <a href="https://github.com/Tengxiaofei-git/Tengxiaofei-git.github.io/fork">🍴 Fork</a>
+  ·
+  <a href="#quick-start">🚀 Quick Start</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Tengxiaofei-git/Tengxiaofei-git.github.io/stargazers"><img src="https://img.shields.io/github/stars/Tengxiaofei-git/Tengxiaofei-git.github.io?style=flat-square&logo=github" alt="GitHub stars" /></a>
+  <a href="https://github.com/Tengxiaofei-git/Tengxiaofei-git.github.io/network/members"><img src="https://img.shields.io/github/forks/Tengxiaofei-git/Tengxiaofei-git.github.io?style=flat-square&logo=github" alt="GitHub forks" /></a>
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License MIT" />
+  <img src="https://img.shields.io/badge/Made%20with-HTML%20%2B%20JS-47709b?style=flat-square" alt="Made with HTML and JS" />
+</p>
+
+> 💡 **Tip**  
+> 日常只需要改 **`config.js`** 里的 `CONFIG`；`index.html` / `script.js` 一般不必动。设计思路见仓库内 `plan.md` 与 `.cursor/skills/beginner-friendly-static-template/SKILL.md`。
 
 ---
 
-## 三步上线
+## ✨ Preview
+
+![个人名片预览](./assets/preview.jpeg)
+
+---
+
+## ✨ Features
+
+- 🧾 **Zero-build**：无需 Node / npm，浏览器打开或静态托管即可
+- 📝 **Single config**：文案、链接、技能列表、经历条目集中在 **`config.js`**
+- 🧩 **Modular slides**：在 `slides` 里设 `enabled: false` 即可隐藏整页，不必删 HTML
+- 🎨 **Theme tokens**：配色集中在 **`theme.css`**（`--tw-*`、语义色与阴影）
+- 🌙 **Dark mode**：顶栏切换，偏好写入 `localStorage`
+- 📱 **Carousel UX**：滑动 / 滚轮 / 方向键切换板块，底部圆点导航
+
+---
+
+<h2 id="quick-start">🚀 Quick Start</h2>
 
 1. **Fork 本仓库**（或下载 ZIP 后推到你的 GitHub 仓库）。
-2. **只改 `config.js`**：名字、学校、头像路径、各页列表、仓库链接等都在里面的 `CONFIG` 对象里，像填表一样改字符串和数组即可。
-3. **打开 GitHub Pages**：仓库 Settings → Pages → Source 选主分支根目录，保存后等待 1～3 分钟，用 `https://你的用户名.github.io/仓库名/` 访问（用户名小写、仓库名与地址规则以 GitHub 文档为准）。
+2. **只改 `config.js`**：名字、学校、头像路径、各页列表、仓库链接等都在 `CONFIG` 里，改字符串和数组即可。
+3. **打开 GitHub Pages**：Settings → Pages → Source 选主分支根目录，保存后等待 1～3 分钟，访问 `https://你的用户名.github.io/仓库名/`（规则以 [GitHub 文档](https://docs.github.com/pages) 为准）。
 
 ---
 
-## 文件是干什么的（你只需要关心这几个）
+## 🛠 Customization
 
-| 文件 | 谁改 | 说明 |
-|------|------|------|
-| **`config.js`** | **主要改这里** | 全站文案、链接、列表、是否显示某一整页幻灯片 |
-| `index.html` | 一般不用动 | 页面骨架；内容由 `script.js` 根据配置填充 |
-| `script.js` | 一般不用动 | 轮播、深色模式、把 `CONFIG` 写到页面上 |
-| `theme.css` | 想换配色时改 | **所有颜色变量**集中在这里（与 Tailwind 用的 `--tw-*` 等） |
-| `style.css` | 一般不用动 | 少量遗留样式 |
-| `icons/` | 可选用 | 水印、小图标等静态图 |
+### 换头像（最常见）
 
----
-
-## 换头像（最常见操作）
-
-1. 准备一张方形头像，例如 `avatar.jpg`。
-2. 放到仓库里任意路径，**推荐**新建文件夹 `assets/`，路径写成 `assets/avatar.jpg`。
-3. 在 `config.js` 里改：
+1. 准备方形头像，例如 `avatar.jpg`。
+2. 推荐放到 **`assets/`**，路径与 `config.js` 中一致，例如 `assets/avatar.jpg`。
+3. 修改 `config.js`：
 
 ```js
 profile: {
@@ -39,41 +65,24 @@ profile: {
 }
 ```
 
-保存、提交、推送；若已开启 Pages，等一两分钟再强制刷新页面（见下文「常见问题」）。
+保存、提交、推送后，若已开 Pages，等待部署并 **强制刷新**（见 FAQ）。
 
----
+### 隐藏某一整页（不删代码）
 
-## 隐藏某一整页（不删代码）
-
-在 `config.js` 的 `slides` 数组里，把对应项的 `enabled` 改成 `false` 即可。例如不显示「实习经验」：
+在 `config.js` 的 `slides` 里将对应项设为 `enabled: false`，例如：
 
 ```js
 { id: 'internship', enabled: false, navLabel: '实习经验', navAriaLabel: '实习经验' },
 ```
 
-底部圆点导航中对应按钮会一起隐藏，轮播只会切换仍启用的页面。
+底部圆点会同步隐藏，轮播只在仍启用的页面间切换。
 
----
+### 配色与主题
 
-## 配色与主题
+- 编辑 **`theme.css`** 顶部变量（如 `--palette-doc-accent`、`--tw-brand-*`）。
+- 页面使用 **Tailwind CSS CDN** 与 **Google Fonts**；教学网或内网若拦截 CDN，样式或字体可能异常，需自行换成本地文件（进阶）。本仓库刻意保持 **零构建** 以降低上手成本。
 
-- **改颜色**：编辑 `theme.css` 顶部的变量（如 `--palette-doc-accent`、`--tw-brand-*`），保存即可。
-- 页面使用 **Tailwind CSS 官方 CDN** 做布局与工具类，主题色通过 `index.html` 里的 `tailwind.config` 与 `theme.css` 里的 RGB 变量对齐。
-- **教学/内网环境注意**：CDN 需要能访问 `cdn.tailwindcss.com` 与 `fonts.googleapis.com`。若网络拦截，页面可能样式异常；可自行下载字体与 Tailwind 构建产物替换（进阶，非零基础路径）。本仓库刻意保持**零构建**，方便新手。
-
----
-
-## 常见问题
-
-- **改了网页却没变**：浏览器或 CDN 缓存。试 `Ctrl+F5` / 无痕窗口，或等 GitHub Pages 部署完成后再试。
-- **图片裂了**：检查 `config.js` 里的路径是否和仓库里**完全一致**（大小写、子目录、扩展名）。
-- **主按钮跳错页**：检查 `links.primaryCtaSlideId` 是否为 `slides` 里某个 `id`（如 `research`），且该页未被 `enabled: false` 关掉。
-
----
-
-## 进阶：人设示例（复制到 `config.js` 参考）
-
-下面是一段「偏 AI 方向学生」的示例片段，可按需合并进你的 `CONFIG`（注意逗号与嵌套）：
+### 进阶：人设示例（复制进 `CONFIG`）
 
 ```js
 profile: {
@@ -112,9 +121,56 @@ skills: {
 
 ---
 
-## 与仓库内其他文档
+## 📁 Project Structure
 
-- `goals.md`、`repo.md`：项目背景与协作说明。
-- `plan.md`：中文产品化思路与「填表改网站」的完整叙述。
+| 文件 | 谁改 | 说明 |
+|------|------|------|
+| **`config.js`** | **主要改这里** | 全站文案、链接、列表、是否显示某一整页幻灯片 |
+| `index.html` | 一般不用动 | 页面骨架；内容由 `script.js` 根据配置填充 |
+| `script.js` | 一般不用动 | 轮播、深色模式、将 `CONFIG` 写入 DOM |
+| `theme.css` | 想换配色时改 | 颜色与阴影变量（与 Tailwind `--tw-*` 对齐） |
+| `style.css` | 一般不用动 | 少量遗留样式 |
+| `assets/` | 可选用 | 水印、小节标题旁图标等静态资源 |
+| `assets/` | 推荐自建 | 头像、**README 预览图** `preview.png` 等 |
 
-若你只想快速改出个人主页：**打开 `config.js` → 改 `CONFIG` → 推送 → 开 Pages** 即可。
+---
+
+## ❓ FAQ
+
+- **改了网页却没变**：浏览器或 CDN 缓存；试 `Ctrl+F5`、无痕窗口，或等待 GitHub Pages 部署完成。
+- **图片裂了**：检查 `config.js` 路径与仓库内路径 **完全一致**（大小写、子目录、扩展名）。
+- **主按钮跳错页**：检查 `links.primaryCtaSlideId` 是否为 `slides` 中某个 `id`，且该页未被 `enabled: false` 关闭。
+
+---
+
+## 🎯 Who is this for?
+
+- 不会写前端、但想快速有一个 **可上线的个人主页**
+- 使用 **GitHub Pages** 的学生与开发者
+- 希望仓库 **像开源产品一样好读、好 Fork** 的模板作者
+
+---
+
+## 🤯 Why this template?
+
+和其他静态站模板相比，这里刻意做到：
+
+- ❌ 不需要 Node / npm  
+- ❌ 不需要手写 HTML 结构  
+- ❌ 不需要懂打包与前端工程化  
+
+👉 **只改一个 `config.js`，就能拥有自己的 GitHub Pages 个人名片** — 同时保留轮播、深色模式与清晰的主题变量，方便以后进阶改样式。
+
+---
+
+## 📚 其他文档
+
+- 内容请以 **`config.js`** 为准；历史需求表可仅放在本地（若存在 `goals.md`，默认不纳入版本库）。
+- `repo.md`：协作与 README 营销向笔记（若仓库提供）。
+- `plan.md`：中文产品化思路（若仓库提供，常被 `.gitignore` 排除）。  
+
+---
+
+## 📄 License
+
+**MIT License** © 2026 [Tengxiaofei-git](https://github.com/Tengxiaofei-git)
