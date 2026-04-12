@@ -30,8 +30,8 @@
   --tw-ink-950: 2 6 23;
 
   /* ===== 卡片与导航投影（完整 box-shadow 字符串）===== */
-  --shadow-card: 0 8px 30px rgb(71 112 155 / 0.08);
-  --shadow-card-dark: 0 10px 40px rgb(0 0 0 / 0.45);
+  --shadow-card: 0 2px 6px rgb(71 112 155 / 0.14), 0 10px 36px rgb(71 112 155 / 0.30);
+  --shadow-card-dark: 0 10px 40px rgb(0 0 0 / 0.55);
 
   /* ===== 底部圆点导航：激活态渐变与阴影 ===== */
   --nav-dot-active-from: #47709b;
@@ -73,7 +73,6 @@ html.dark {
   --nav-dot-active-shadow: 0 8px 24px rgb(129 140 248 / 0.35);
   --nav-dot-active-shadow-dark: 0 8px 24px rgb(129 140 248 / 0.5);
 }
-
 /*
  * 预设示例（取消注释并给 body 加 class 即可）：
  *
@@ -87,3 +86,4 @@ html.dark {
  *   --nav-dot-active-to: #c4b5fd;
  * }
  */
+
