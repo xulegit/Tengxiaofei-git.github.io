@@ -59,8 +59,8 @@ const CONFIG = {
       },
       {
         label: '联系方式',
-        value: '3871162801@qq.com',
-        href: 'mailto:3871162801@qq.com'
+        value: 'tengfeimsc@163.com',
+        href: 'mailto:tengfeimsc@163.com'
       }
     ]
   },
