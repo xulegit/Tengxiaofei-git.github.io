@@ -4,17 +4,17 @@
  */
 const CONFIG = {
   meta: {
-    title: '腾小飞 · 个人名片',
+    title: '徐乐 · 个人名片',
     description:
-      '腾小飞 — 复旦大学腾飞书院工科学生个人名片：简介、技能与兴趣、科研、竞赛、实习与社会实践。',
+      '徐乐 — 复旦大学微电子学院2025级学生，正在努力学习中的新手名片',
     lang: 'zh-CN'
   },
 
   /** 顶栏与页脚文案 */
   site: {
-    headerName: '腾小飞',
-    footerName: '腾小飞',
-    footerOrg: '复旦大学腾飞书院',
+    headerName: '徐乐',
+    footerName: '徐乐',
+    footerOrg: '复旦大学微电子学院',
     footerNote: '本页为 github.io 静态部署教程示例 · 左右滑动或方向键切换'
   },
 
@@ -40,34 +40,34 @@ const CONFIG = {
   profile: {
     greetingLead: '你好，我是',
     /** 首页大标题里渐变显示的名字 */
-    displayName: '腾小飞',
-    locationLine: '复旦大学腾飞书院',
-    intro: '工科学生一枚；本页是 GitHub Pages 静态个人名片的示例，展示简介与经历片段。',
-    quote: '「永远在腾飞路上！」',
+    displayName: '徐乐',
+    locationLine: '复旦大学微电子学院 2025级',
+    intro: '微电子专业萌新一枚，目前处于“啥也不会但充满热情”的阶段，正在努力从零开始。',
+    quote: '「日月光华，旦复旦兮」',
     /** 头像：可把图片放到 assets/ 下，例如 assets/avatar.jpg */
     avatar: 'assets/秘书处_线条.png',
-    avatarAlt: '腾小飞',
+    avatarAlt: '徐乐头像',
     aboutTitle: 'About Me',
     /** 右侧「关于我」列表；有 href 时渲染为链接 */
     aboutRows: [
-      { label: '年龄', value: '永远的 18 岁' },
-      { label: '爱好', value: '探索世界' },
+      { label: '年龄', value: '18岁（永远的萌新）' },
+      { label: '爱好', value: '学习怎么学习、发呆、电子DIY入门' },
       {
         label: 'GitHub',
-        value: 'Tengxiaofei-git',
-        href: 'https://github.com/Tengxiaofei-git'
+        value: 'xulegit',
+        href: 'https://github.com/xulegit'
       },
       {
         label: '联系方式',
-        value: 'tengfeimsc@163.com',
-        href: 'mailto:tengfeimsc@163.com'
+        value: 'lexu25@m.fudan.edu.cn',
+        href: 'mailto:lexu25@m.fudan.edu.cn'
       }
     ]
   },
 
   links: {
     /** 右上角「GitHub 仓库」按钮 */
-    repoUrl: 'https://github.com/Tengxiaofei-git/Tengxiaofei-git.github.io',
+    repoUrl: 'https://github.com/xulegit/xulegit.github.io',
     repoLabel: 'GitHub 仓库',
     /** 主按钮文案与跳转的幻灯片 id（须为上面 slides 中某一 id） */
     primaryCtaLabel: '浏览经历',
@@ -81,26 +81,23 @@ const CONFIG = {
         sections: [
           {
             heading: 'Language',
-            items: ['Chinese', 'English']
+            items: ['中文', 'English (CET-4 备考中)']
           },
           {
             heading: 'Interests',
-            items: ['Photography', 'Painting', 'Go-kart']
+            items: ['电子制作', '羽毛球', '看科技视频']
           }
         ]
       },
       {
         sections: [
           {
-            heading: 'Tech',
+            heading: 'Tech (学习ing)',
             items: [
-              'Python',
-              'C++',
-              'Unity',
-              'Godot',
-              'Matlab',
-              'SPSS',
-              'SQL'
+              'C语言 (刚学会指针)',
+              'Python (print("hello"))',
+              'Verilog (波形很美丽)',
+              'Matlab (用来算数学作业)'
             ]
           }
         ]
@@ -108,8 +105,8 @@ const CONFIG = {
       {
         sections: [
           {
-            heading: 'Reading list（寻找书友中……）',
-            items: ['《人间词话》', '《人间草木》', '《百年孤独》']
+            heading: '近期在读（寻找书友中……）',
+            items: ['《微电子电路》', '《CMOS集成电路设计》', '《如何阅读一本书》']
           }
         ]
       }
@@ -121,28 +118,30 @@ const CONFIG = {
     research: {
       title: '科研经历',
       items: [
-        '参与发表一篇 WON 负一区文章',
-        '参与腾飞科创并顺利结项',
-        'xxxx 实验室周公下棋全勤奖'
+        '暂无正式科研经历，正在认真学习专业基础课',
+        '积极关注课题组招新，未来可期'
       ]
     },
     competition: {
       title: '竞赛获奖经历',
       items: [
-        '数模国赛永远在参与',
-        '电赛、ACM、RM 有空一定了解'
+        '2025年复旦大学新生入学积极参与奖（手动狗头）',
+        '尚未参加专业竞赛，正在积累知识准备中'
       ]
     },
     internship: {
       title: '实习经验',
       items: [
-        '家里厨房暑期优秀实习生',
-        '深度参与撸猫遛狗项目，实习认证时长 100h+'
+        '暂无实习经验，计划大二暑期开始投递',
+        '目前在实验室打杂学习焊接技术'
       ]
     },
     social: {
       title: '社会实践',
-      items: ['2008 年感动中国人物得主', '被窝测评大师']
+      items: [
+        '新生入学志愿者 · 引导新生报到',
+        '宿舍熄灯后坚持不打扰室友挑战（成功中）'
+      ]
     }
   }
 }
